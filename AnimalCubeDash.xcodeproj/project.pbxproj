@@ -52,6 +52,7 @@
 		A1B2C3D4E5F60001000042 /* DailyChallengeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000042 /* DailyChallengeManager.swift */; };
 		A1B2C3D4E5F60001000043 /* GameCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000043 /* GameCenterManager.swift */; };
 		A1B2C3D4E5F60001000044 /* BragMessageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000044 /* BragMessageGenerator.swift */; };
+		A1B2C3D4E5F60001000080 /* AppUpdateChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000080 /* AppUpdateChecker.swift */; };
 		A1B2C3D4E5F60001000045 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000045 /* Constants.swift */; };
 		A1B2C3D4E5F60001000046 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000046 /* Extensions.swift */; };
 		A1B2C3D4E5F60001000047 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000047 /* Assets.xcassets */; };
@@ -110,6 +111,7 @@
 		A1B2C3D4E5F60002000042 /* DailyChallengeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyChallengeManager.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60002000043 /* GameCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterManager.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60002000044 /* BragMessageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BragMessageGenerator.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F60002000080 /* AppUpdateChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateChecker.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60002000045 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60002000046 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60002000047 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 		A1B2C3D4E5F60004000011 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A1B2C3D4E5F60002000080 /* AppUpdateChecker.swift */,
 				A1B2C3D4E5F60002000045 /* Constants.swift */,
 				A1B2C3D4E5F60002000046 /* Extensions.swift */,
 			);
@@ -408,6 +411,7 @@
 				A1B2C3D4E5F60001000042 /* DailyChallengeManager.swift in Sources */,
 				A1B2C3D4E5F60001000043 /* GameCenterManager.swift in Sources */,
 				A1B2C3D4E5F60001000044 /* BragMessageGenerator.swift in Sources */,
+				A1B2C3D4E5F60001000080 /* AppUpdateChecker.swift in Sources */,
 				A1B2C3D4E5F60001000045 /* Constants.swift in Sources */,
 				A1B2C3D4E5F60001000046 /* Extensions.swift in Sources */,
 				A1B2C3D4E5F60001000048 /* ShareBragView.swift in Sources */,

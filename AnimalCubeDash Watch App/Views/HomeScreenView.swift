@@ -2,6 +2,7 @@ import SwiftUI
 
 struct HomeScreenView: View {
     @EnvironmentObject var store: GameProgressStore
+    @StateObject private var updateChecker = AppUpdateChecker.shared
     @State private var bragMessage = ""
     @State private var bragTimer: Timer?
     @State private var skinPulse = false
@@ -63,6 +64,24 @@ struct HomeScreenView: View {
             }
 
             Spacer()
+
+            // Update Available Banner
+            if updateChecker.updateAvailable {
+                HStack(spacing: 4) {
+                    Image(systemName: "arrow.down.circle.fill")
+                        .font(.system(size: 11))
+                    Text("Update Available! v\(updateChecker.latestVersion ?? "")")
+                        .font(.system(size: 10, weight: .bold, design: .rounded))
+                }
+                .foregroundColor(.white)
+                .padding(.horizontal, 8)
+                .padding(.vertical, 4)
+                .background(
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(Color.orange)
+                )
+                .padding(.bottom, 2)
+            }
 
             // Brag Message Banner
             if !bragMessage.isEmpty {
@@ -127,6 +146,7 @@ struct HomeScreenView: View {
         .toolbar(.hidden)
         .onAppear {
             rotateBragMessage()
+            updateChecker.checkForUpdate()
         }
         .onDisappear {
             bragTimer?.invalidate()
