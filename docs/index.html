@@ -7,364 +7,572 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            color: #fff;
+            font-family: 'Trebuchet MS', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(180deg, #87CEEB 0%, #E0F7FA 30%, #FFF9C4 60%, #C8E6C9 100%);
+            color: #333;
             min-height: 100vh;
         }
         .container { max-width: 800px; margin: 0 auto; padding: 20px; }
 
+        /* Floating clouds */
+        .clouds {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .cloud {
+            position: absolute;
+            font-size: 3em;
+            opacity: 0.4;
+            animation: floatCloud 20s linear infinite;
+        }
+        .cloud:nth-child(1) { top: 20px; left: -60px; animation-duration: 25s; }
+        .cloud:nth-child(2) { top: 60px; left: -100px; animation-duration: 30s; animation-delay: 5s; }
+        .cloud:nth-child(3) { top: 40px; left: -80px; animation-duration: 22s; animation-delay: 10s; }
+        @keyframes floatCloud {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(calc(100vw + 100px)); }
+        }
+
+        .content { position: relative; z-index: 1; }
+
         /* Header */
         header {
             text-align: center;
-            padding: 60px 20px 40px;
+            padding: 50px 20px 30px;
         }
         .app-icon {
-            width: 120px;
-            height: 120px;
-            border-radius: 26px;
-            background: linear-gradient(135deg, #87CEEB, #4FC3F7);
+            width: 130px;
+            height: 130px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #FF9800, #FF5722, #E91E63);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 60px;
+            font-size: 65px;
             margin: 0 auto 20px;
-            box-shadow: 0 8px 32px rgba(79, 195, 247, 0.3);
+            box-shadow: 0 8px 24px rgba(255, 87, 34, 0.4);
+            border: 4px solid #fff;
+            animation: bounceIn 1s ease;
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
         }
         h1 {
-            font-size: 2.5em;
-            font-weight: 800;
-            background: linear-gradient(90deg, #4FC3F7, #E1BEE7, #F48FB1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 8px;
+            font-size: 2.8em;
+            font-weight: 900;
+            color: #FF5722;
+            text-shadow: 2px 2px 0 #FFE082, 4px 4px 0 rgba(0,0,0,0.1);
+            margin-bottom: 6px;
         }
         .byline {
-            font-size: 1em;
-            color: #4FC3F7;
-            margin-bottom: 8px;
+            font-size: 1.1em;
+            color: #E91E63;
+            font-weight: 700;
         }
         .tagline {
             font-size: 1.1em;
-            color: rgba(255,255,255,0.7);
+            color: #555;
             max-width: 500px;
-            margin: 0 auto;
+            margin: 10px auto 0;
+            line-height: 1.5;
+        }
+
+        /* Animal parade */
+        .animal-parade {
+            text-align: center;
+            font-size: 2.2em;
+            padding: 15px 0;
+            letter-spacing: 8px;
+            animation: parade 3s ease-in-out infinite alternate;
+        }
+        @keyframes parade {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-5px); }
+        }
+
+        /* Hero image area */
+        .hero-scene {
+            background: linear-gradient(180deg, #87CEEB, #B3E5FC);
+            border-radius: 24px;
+            padding: 30px;
+            margin: 20px 0;
+            text-align: center;
+            border: 3px solid #4FC3F7;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-ground {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(180deg, #66BB6A, #43A047);
+            border-radius: 0 0 20px 20px;
+        }
+        .hero-ground::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 0;
+            width: 100%;
+            height: 16px;
+            background: repeating-linear-gradient(90deg, transparent, transparent 20px, #81C784 20px, #81C784 22px);
+        }
+        .hero-characters {
+            font-size: 3em;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+            letter-spacing: 15px;
+        }
+        .hero-text {
+            font-size: 1.3em;
+            font-weight: 800;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+            margin-bottom: 25px;
         }
 
         /* Sections */
-        section {
-            padding: 40px 0;
-        }
+        section { padding: 30px 0; }
         h2 {
-            font-size: 1.8em;
+            font-size: 2em;
             margin-bottom: 20px;
             text-align: center;
+            color: #E91E63;
+            text-shadow: 1px 1px 0 rgba(0,0,0,0.05);
         }
         h3 {
-            font-size: 1.2em;
-            margin-bottom: 8px;
-            color: #4FC3F7;
+            font-size: 1.15em;
+            margin-bottom: 6px;
+            color: #FF5722;
         }
 
         /* Features Grid */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            gap: 16px;
             margin-top: 20px;
         }
         .feature-card {
-            background: rgba(255,255,255,0.08);
-            border-radius: 16px;
+            background: #fff;
+            border-radius: 20px;
             padding: 24px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 3px solid #FFE082;
             transition: transform 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
         .feature-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-6px) rotate(1deg);
+            border-color: #FF9800;
         }
         .feature-icon {
-            font-size: 2em;
-            margin-bottom: 12px;
+            font-size: 2.5em;
+            margin-bottom: 10px;
         }
         .feature-card p {
-            color: rgba(255,255,255,0.7);
+            color: #666;
             font-size: 0.9em;
             line-height: 1.5;
         }
 
         /* Skins Section */
         .skins-section {
-            background: rgba(255,255,255,0.05);
-            border-radius: 20px;
-            padding: 30px;
+            background: #fff;
+            border-radius: 24px;
+            padding: 24px;
             margin-top: 20px;
+            border: 3px solid #CE93D8;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
         .rarity-row {
             display: flex;
             align-items: center;
             gap: 12px;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 14px 10px;
+            border-bottom: 2px dashed #F3E5F5;
+            flex-wrap: wrap;
         }
         .rarity-row:last-child { border-bottom: none; }
         .rarity-badge {
             display: inline-block;
-            padding: 4px 12px;
+            padding: 5px 14px;
             border-radius: 20px;
             font-size: 0.8em;
-            font-weight: 700;
-            min-width: 90px;
+            font-weight: 800;
+            min-width: 95px;
             text-align: center;
+            color: #fff;
         }
-        .rarity-common { background: #9E9E9E; }
-        .rarity-rare { background: #3498DB; }
-        .rarity-ultra { background: #9B59B6; }
-        .rarity-epic { background: #F1C40F; color: #333; }
-        .rarity-legendary { background: #FF1493; }
+        .rarity-common { background: linear-gradient(135deg, #9E9E9E, #BDBDBD); }
+        .rarity-rare { background: linear-gradient(135deg, #2196F3, #42A5F5); }
+        .rarity-ultra { background: linear-gradient(135deg, #9C27B0, #BA68C8); }
+        .rarity-epic { background: linear-gradient(135deg, #FF9800, #FFC107); }
+        .rarity-legendary { background: linear-gradient(135deg, #E91E63, #FF4081); }
         .rarity-count {
-            color: rgba(255,255,255,0.6);
-            font-size: 0.9em;
+            color: #999;
+            font-size: 0.85em;
+            font-weight: 600;
         }
         .rarity-skins {
-            color: rgba(255,255,255,0.8);
+            color: #666;
             font-size: 0.85em;
             flex: 1;
+            min-width: 200px;
+        }
+        .rarity-emojis {
+            font-size: 1.3em;
+            letter-spacing: 3px;
         }
 
         /* Controls */
         .controls-list {
             list-style: none;
-            max-width: 400px;
+            max-width: 420px;
             margin: 20px auto 0;
         }
         .controls-list li {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            gap: 14px;
+            padding: 14px;
+            margin-bottom: 10px;
+            background: #fff;
+            border-radius: 16px;
+            border: 2px solid #B3E5FC;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.06);
         }
         .control-key {
-            background: rgba(255,255,255,0.15);
-            padding: 6px 14px;
-            border-radius: 8px;
-            font-weight: 600;
-            min-width: 100px;
+            background: linear-gradient(135deg, #FF9800, #FF5722);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-weight: 800;
+            min-width: 110px;
             text-align: center;
             font-size: 0.9em;
         }
 
         /* Requirements Table */
+        .req-section {
+            background: #fff;
+            border-radius: 24px;
+            padding: 24px;
+            border: 3px solid #A5D6A7;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
         .req-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
         }
         .req-table th, .req-table td {
-            padding: 12px 16px;
+            padding: 14px 16px;
             text-align: left;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 2px dashed #E8F5E9;
         }
         .req-table th {
-            color: #4FC3F7;
+            color: #43A047;
             font-size: 0.85em;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
         .req-table td {
-            color: rgba(255,255,255,0.8);
+            color: #555;
             font-size: 0.9em;
+        }
+        .req-table tr:last-child td { border-bottom: none; }
+
+        /* Compatibility */
+        .compat { text-align: center; margin-top: 20px; }
+        .compat-badge {
+            display: inline-block;
+            background: #fff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 4px;
+            border: 2px solid #B3E5FC;
+            font-weight: 600;
+            color: #1976D2;
+        }
+
+        /* Screenshots placeholder */
+        .screenshots {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .screenshot-frame {
+            width: 120px;
+            height: 150px;
+            background: linear-gradient(180deg, #87CEEB, #E1F5FE);
+            border-radius: 20px;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .screenshot-frame .screen-emoji { font-size: 2.5em; }
+        .screenshot-frame .screen-label {
+            font-size: 0.65em;
+            font-weight: 700;
+            color: #1976D2;
+            text-transform: uppercase;
+        }
+
+        /* Fun dividers */
+        .fun-divider {
+            text-align: center;
+            font-size: 1.5em;
+            letter-spacing: 10px;
+            padding: 10px 0;
+            opacity: 0.6;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 40px;
+            padding: 30px 20px;
+            background: linear-gradient(180deg, transparent, rgba(255,255,255,0.5));
+            margin-top: 30px;
+            border-radius: 24px 24px 0 0;
         }
         footer a {
-            color: #4FC3F7;
+            color: #E91E63;
             text-decoration: none;
-            margin: 0 12px;
+            font-weight: 700;
+            margin: 0 14px;
+            font-size: 1em;
         }
         footer a:hover { text-decoration: underline; }
-        .footer-links {
-            margin-bottom: 16px;
-        }
+        .footer-links { margin-bottom: 12px; }
         .copyright {
-            color: rgba(255,255,255,0.4);
+            color: #999;
             font-size: 0.85em;
-        }
-
-        /* Compatibility */
-        .compat {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .compat-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.1);
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            margin: 4px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Floating clouds -->
+    <div class="clouds">
+        <div class="cloud">☁️</div>
+        <div class="cloud">☁️</div>
+        <div class="cloud">☁️</div>
+    </div>
+
+    <div class="container content">
 
         <!-- Header -->
         <header>
             <div class="app-icon">🐱</div>
             <h1>Animal Cube Dash</h1>
             <p class="byline">By Ahaana Sistla!</p>
-            <p class="tagline">A fun, kid-friendly platformer for Apple Watch. Jump, duck, and dash your way through exciting levels with adorable animal cubes!</p>
+            <p class="tagline">A super fun platformer for Apple Watch! Jump, duck, and dash through exciting levels with the cutest animal cubes ever!</p>
         </header>
 
-        <!-- Features -->
+        <!-- Animal parade -->
+        <div class="animal-parade">🐱🐶🐰🐸🐥🐼🦊🐧🐯🦁🐲🦄</div>
+
+        <!-- Hero scene -->
+        <div class="hero-scene">
+            <div class="hero-characters">🏃‍♂️ 🗡️ 🏆</div>
+            <p class="hero-text">Jump! Duck! Dash to the treasure!</p>
+            <div class="hero-ground"></div>
+        </div>
+
+        <!-- Watch screenshots -->
         <section>
-            <h2>Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🎮</div>
-                    <h3>Side-Scrolling Action</h3>
-                    <p>Guide your animal cube through procedurally generated levels filled with platforms, obstacles, and treasure chests.</p>
+            <h2>🎮 Game Preview</h2>
+            <div class="screenshots">
+                <div class="screenshot-frame">
+                    <span class="screen-emoji">🐱</span>
+                    <span class="screen-emoji">▶️</span>
+                    <span class="screen-label">Home</span>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🐾</div>
-                    <h3>33 Animal Skins</h3>
-                    <p>Collect adorable animal cubes across 5 rarity tiers, from Common cats and dogs to Legendary Sanrio characters.</p>
+                <div class="screenshot-frame">
+                    <span class="screen-emoji">🏃</span>
+                    <span class="screen-emoji">⚔️</span>
+                    <span class="screen-label">Gameplay</span>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚔️</div>
-                    <h3>Obstacles & Hazards</h3>
-                    <p>Dodge spikes, duck under flying knives, escape quicksand, and navigate moving platforms.</p>
+                <div class="screenshot-frame">
+                    <span class="screen-emoji">🎉</span>
+                    <span class="screen-emoji">🏆</span>
+                    <span class="screen-label">Victory!</span>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏆</div>
-                    <h3>Unlock System</h3>
-                    <p>Earn new skins by completing levels, surviving with full lives, or achieving perfect runs.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎁</div>
-                    <h3>Unlock Animations</h3>
-                    <p>Exciting gift box reveals for rare skins and spinning animations for common skin unlocks.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📢</div>
-                    <h3>Brag & Share</h3>
-                    <p>Show off your achievements to friends via Game Center or Messages with fun boasting messages.</p>
+                <div class="screenshot-frame">
+                    <span class="screen-emoji">🐾</span>
+                    <span class="screen-emoji">✨</span>
+                    <span class="screen-label">Skins</span>
                 </div>
             </div>
         </section>
 
+        <div class="fun-divider">🌟 ⭐ 🌟 ⭐ 🌟</div>
+
+        <!-- Features -->
+        <section>
+            <h2>✨ Awesome Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3>Side-Scrolling Fun</h3>
+                    <p>Run through awesome levels filled with platforms, obstacles, and treasure chests waiting to be found!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🐾</div>
+                    <h3>33 Animal Skins</h3>
+                    <p>Collect adorable animal cubes! From cute cats and dogs to legendary Sanrio characters!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🗡️</div>
+                    <h3>Cool Obstacles</h3>
+                    <p>Dodge spikes, duck under flying knives, escape quicksand, and jump across moving platforms!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Unlock Rewards</h3>
+                    <p>Earn new skins by being awesome! Complete levels and achieve perfect runs to get rare skins!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎁</div>
+                    <h3>Surprise Reveals</h3>
+                    <p>Open gift boxes to discover rare skins! Watch your new common skins spin with a cool animation!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📣</div>
+                    <h3>Brag to Friends</h3>
+                    <p>Show off your epic achievements! Send fun brag messages to friends through Game Center or Messages!</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="fun-divider">🐱 🐶 🐰 🐸 🐼</div>
+
         <!-- Skins -->
         <section>
-            <h2>Collectible Skins</h2>
+            <h2>🐾 Collectible Skins</h2>
             <div class="skins-section">
                 <div class="rarity-row">
                     <span class="rarity-badge rarity-common">Common</span>
                     <span class="rarity-count">7 skins</span>
-                    <span class="rarity-skins">Cat, Dog, Bunny, Frog, Chick, Hamster, Duck</span>
+                    <span class="rarity-emojis">🐱🐶🐰🐸🐥🐹🦆</span>
                 </div>
                 <div class="rarity-row">
                     <span class="rarity-badge rarity-rare">Rare</span>
                     <span class="rarity-count">7 skins</span>
-                    <span class="rarity-skins">Panda, Fox, Owl, Penguin, Koala, Raccoon, Deer</span>
+                    <span class="rarity-emojis">🐼🦊🦉🐧🐨🦝🦌</span>
                 </div>
                 <div class="rarity-row">
                     <span class="rarity-badge rarity-ultra">Ultra Rare</span>
                     <span class="rarity-count">6 skins</span>
-                    <span class="rarity-skins">Tiger, Wolf, Lion, Dolphin, Red Panda, Chameleon</span>
+                    <span class="rarity-emojis">🐯🐺🦁🐬🔴🦎</span>
                 </div>
                 <div class="rarity-row">
                     <span class="rarity-badge rarity-epic">Epic</span>
                     <span class="rarity-count">7 skins</span>
-                    <span class="rarity-skins">Dragon, Phoenix, Unicorn, Shark, Golden Tiger, Arctic Fox, Snowy Owl</span>
+                    <span class="rarity-emojis">🐲🔥🦄🦈✨🦊🦉</span>
                 </div>
                 <div class="rarity-row">
                     <span class="rarity-badge rarity-legendary">Legendary</span>
                     <span class="rarity-count">11 skins</span>
-                    <span class="rarity-skins">Hello Kitty, My Melody, Cinnamoroll, Kuromi, Pompompurin, Keroppi, Pochacco, Badtz-Maru, Tuxedo Sam, Lala, Kiki</span>
+                    <span class="rarity-emojis">🎀🐰☁️💜🍮🐸🐕🐧⭐🌟</span>
                 </div>
             </div>
         </section>
 
         <!-- Unlock Requirements -->
         <section>
-            <h2>How to Unlock Skins</h2>
-            <table class="req-table">
-                <thead>
-                    <tr>
-                        <th>Rarity</th>
-                        <th>Requirement</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span class="rarity-badge rarity-common">Common</span></td>
-                        <td>Complete 10 levels</td>
-                    </tr>
-                    <tr>
-                        <td><span class="rarity-badge rarity-rare">Rare</span></td>
-                        <td>Finish a level with 2+ lives remaining</td>
-                    </tr>
-                    <tr>
-                        <td><span class="rarity-badge rarity-ultra">Ultra Rare</span></td>
-                        <td>Finish a level with 2+ lives remaining</td>
-                    </tr>
-                    <tr>
-                        <td><span class="rarity-badge rarity-epic">Epic</span></td>
-                        <td>Finish a level with 2+ lives remaining</td>
-                    </tr>
-                    <tr>
-                        <td><span class="rarity-badge rarity-legendary">Legendary</span></td>
-                        <td>Pass 5 consecutive levels without losing any lives</td>
-                    </tr>
-                </tbody>
-            </table>
+            <h2>🔓 How to Unlock Skins</h2>
+            <div class="req-section">
+                <table class="req-table">
+                    <thead>
+                        <tr>
+                            <th>Rarity</th>
+                            <th>What You Need To Do</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="rarity-badge rarity-common">Common</span></td>
+                            <td>Complete 10 levels 💪</td>
+                        </tr>
+                        <tr>
+                            <td><span class="rarity-badge rarity-rare">Rare</span></td>
+                            <td>Beat a level with 2+ lives left ❤️❤️</td>
+                        </tr>
+                        <tr>
+                            <td><span class="rarity-badge rarity-ultra">Ultra Rare</span></td>
+                            <td>Beat a level with 2+ lives left ❤️❤️</td>
+                        </tr>
+                        <tr>
+                            <td><span class="rarity-badge rarity-epic">Epic</span></td>
+                            <td>Beat a level with 2+ lives left ❤️❤️</td>
+                        </tr>
+                        <tr>
+                            <td><span class="rarity-badge rarity-legendary">Legendary</span></td>
+                            <td>Pass 5 levels in a row with ZERO deaths! 🔥🔥🔥</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
+
+        <div class="fun-divider">🎮 🕹️ 🎮 🕹️ 🎮</div>
 
         <!-- Controls -->
         <section>
-            <h2>Controls</h2>
+            <h2>🕹️ How to Play</h2>
             <ul class="controls-list">
                 <li>
-                    <span class="control-key">Tap</span>
-                    <span>Jump over obstacles and gaps</span>
+                    <span class="control-key">👆 Tap</span>
+                    <span>Jump over obstacles and gaps!</span>
                 </li>
                 <li>
-                    <span class="control-key">Swipe Down</span>
-                    <span>Duck to avoid flying knives</span>
+                    <span class="control-key">👇 Swipe Down</span>
+                    <span>Duck to avoid flying knives!</span>
                 </li>
                 <li>
-                    <span class="control-key">Digital Crown</span>
-                    <span>Control scroll speed</span>
+                    <span class="control-key">⌚ Crown</span>
+                    <span>Spin the Digital Crown to go faster!</span>
                 </li>
             </ul>
         </section>
 
         <!-- Compatibility -->
         <section>
-            <h2>Compatibility</h2>
+            <h2>⌚ Works On</h2>
             <div class="compat">
-                <span class="compat-badge">watchOS 10.0+</span>
-                <span class="compat-badge">Apple Watch Series 6+</span>
-                <span class="compat-badge">Apple Watch SE</span>
-                <span class="compat-badge">Apple Watch Ultra</span>
+                <span class="compat-badge">⌚ watchOS 10.0+</span>
+                <span class="compat-badge">⌚ Apple Watch Series 6+</span>
+                <span class="compat-badge">⌚ Apple Watch SE</span>
+                <span class="compat-badge">⌚ Apple Watch Ultra</span>
             </div>
         </section>
 
         <!-- Footer -->
         <footer>
             <div class="footer-links">
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="support.html">Support</a>
+                <a href="privacy.html">🔒 Privacy Policy</a>
+                <a href="support.html">💬 Support</a>
             </div>
-            <p class="copyright">&copy; 2025 Ahaana Sistla. All rights reserved.</p>
+            <p class="copyright">&copy; 2025 Ahaana Sistla. All rights reserved. Made with ❤️</p>
         </footer>
 
     </div>

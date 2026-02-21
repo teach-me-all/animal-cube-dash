@@ -7,9 +7,9 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            color: #fff;
+            font-family: 'Trebuchet MS', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(180deg, #E8F5E9 0%, #E3F2FD 50%, #FFF3E0 100%);
+            color: #333;
             min-height: 100vh;
         }
         .container {
@@ -18,80 +18,107 @@
             padding: 40px 20px;
         }
         .back-link {
-            display: inline-block;
-            color: #4FC3F7;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #E91E63;
             text-decoration: none;
             margin-bottom: 30px;
-            font-size: 0.9em;
+            font-size: 0.95em;
+            font-weight: 700;
+            background: #fff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 2px solid #F8BBD0;
         }
-        .back-link:hover { text-decoration: underline; }
+        .back-link:hover { background: #FCE4EC; }
         h1 {
-            font-size: 2em;
-            margin-bottom: 8px;
-            background: linear-gradient(90deg, #4FC3F7, #E1BEE7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 2.2em;
+            color: #FF6F00;
+            text-shadow: 1px 1px 0 rgba(0,0,0,0.05);
+            margin-bottom: 6px;
         }
         .subtitle {
-            color: rgba(255,255,255,0.6);
-            margin-bottom: 30px;
+            color: #888;
+            font-size: 0.95em;
+            margin-bottom: 24px;
         }
         h2 {
             font-size: 1.3em;
-            color: #4FC3F7;
-            margin-top: 30px;
+            color: #FF5722;
+            margin-top: 28px;
             margin-bottom: 12px;
         }
         p, li {
-            color: rgba(255,255,255,0.8);
+            color: #555;
             line-height: 1.7;
             margin-bottom: 12px;
             font-size: 0.95em;
         }
-        a { color: #4FC3F7; text-decoration: none; }
+        a { color: #E91E63; text-decoration: none; }
         a:hover { text-decoration: underline; }
 
         .contact-card {
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
-            padding: 24px;
+            background: #fff;
+            border: 3px solid #81D4FA;
+            border-radius: 24px;
+            padding: 28px;
             text-align: center;
             margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
         }
-        .contact-card .icon { font-size: 2em; margin-bottom: 12px; }
+        .contact-card .icon { font-size: 2.5em; margin-bottom: 12px; }
+        .contact-card p { color: #555; }
         .contact-card a {
             font-size: 1.1em;
-            font-weight: 600;
+            font-weight: 700;
+            color: #E91E63;
         }
 
         .faq-item {
-            background: rgba(255,255,255,0.05);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 12px;
+            background: #fff;
+            border-radius: 20px;
+            padding: 20px 24px;
+            margin-bottom: 14px;
+            border: 2px solid #E0E0E0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
         }
         .faq-question {
             font-weight: 700;
-            color: #fff;
+            color: #FF6F00;
             margin-bottom: 8px;
             font-size: 0.95em;
         }
         .faq-answer {
-            color: rgba(255,255,255,0.7);
+            color: #666;
             font-size: 0.9em;
-            line-height: 1.6;
+            line-height: 1.7;
         }
+
+        .section-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 24px;
+            margin: 16px 0;
+            border: 2px solid #E0E0E0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+        }
+        .section-card h2 { margin-top: 0; }
 
         footer {
             text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 40px;
+            padding: 30px 20px;
+            margin-top: 30px;
         }
-        footer a { margin: 0 12px; }
+        footer a {
+            color: #E91E63;
+            text-decoration: none;
+            font-weight: 700;
+            margin: 0 14px;
+        }
+        footer a:hover { text-decoration: underline; }
         .copyright {
-            color: rgba(255,255,255,0.4);
+            color: #999;
             font-size: 0.85em;
             margin-top: 12px;
         }
@@ -100,75 +127,77 @@
 <body>
     <div class="container">
 
-        <a href="index.html" class="back-link">&larr; Back to Home</a>
+        <a href="index.html" class="back-link">&#x2B05;&#xFE0F; Back to Home</a>
 
-        <h1>Support</h1>
-        <p class="subtitle">We're here to help you with Animal Cube Dash</p>
+        <h1>&#x1F4AC; Support</h1>
+        <p class="subtitle">We're here to help you with Animal Cube Dash!</p>
 
         <!-- Contact -->
         <div class="contact-card">
-            <div class="icon">📧</div>
+            <div class="icon">&#x1F4E7;</div>
             <p>Have a question, found a bug, or want to share feedback?</p>
             <a href="mailto:support@animalcubedash.com">support@animalcubedash.com</a>
         </div>
 
         <!-- FAQ -->
-        <h2>Frequently Asked Questions</h2>
+        <h2>&#x2753; Frequently Asked Questions</h2>
 
         <div class="faq-item">
-            <p class="faq-question">How do I jump?</p>
+            <p class="faq-question">&#x1F3AE; How do I jump?</p>
             <p class="faq-answer">Tap anywhere on the screen to make your animal cube jump. Time your jumps to avoid obstacles and cross gaps between platforms.</p>
         </div>
 
         <div class="faq-item">
-            <p class="faq-question">How do I duck under flying knives?</p>
+            <p class="faq-question">&#x1F52A; How do I duck under flying knives?</p>
             <p class="faq-answer">Swipe down on the screen to duck. Your animal cube will crouch for a short time, allowing flying knives to pass overhead. The cube automatically stands back up after a moment.</p>
         </div>
 
         <div class="faq-item">
-            <p class="faq-question">How do I unlock new skins?</p>
+            <p class="faq-question">&#x1F3A8; How do I unlock new skins?</p>
             <p class="faq-answer">Skins unlock as you progress through levels. Common skins require completing 10 levels. Rare, Ultra Rare, and Epic skins require finishing a level with 2 or more lives remaining. Legendary skins require passing 5 consecutive levels without losing any lives.</p>
         </div>
 
         <div class="faq-item">
-            <p class="faq-question">How do I change my animal cube skin?</p>
+            <p class="faq-question">&#x1F431; How do I change my animal cube skin?</p>
             <p class="faq-answer">Go to the Skins gallery from the home screen. Tap on any unlocked skin, then press "Select" to use it. You can also press "Brag" to share your unlock with friends.</p>
         </div>
 
         <div class="faq-item">
-            <p class="faq-question">How does Game Center work?</p>
+            <p class="faq-question">&#x1F3C6; How does Game Center work?</p>
             <p class="faq-answer">Game Center lets you compete on leaderboards and connect with friends. Make sure you're signed in to Game Center on your iPhone (Settings &rarr; Game Center). Your Apple Watch will use your iPhone's Game Center account.</p>
         </div>
 
         <div class="faq-item">
-            <p class="faq-question">Can I reset my progress?</p>
+            <p class="faq-question">&#x1F504; Can I reset my progress?</p>
             <p class="faq-answer">Yes, you can reset all game progress from within the app. This will reset your level, unlocked skins, and all statistics. Note that this action cannot be undone.</p>
         </div>
 
         <div class="faq-item">
-            <p class="faq-question">What Apple Watch models are supported?</p>
+            <p class="faq-question">&#x231A; What Apple Watch models are supported?</p>
             <p class="faq-answer">Animal Cube Dash requires watchOS 10.0 or later. This includes Apple Watch Series 6 and newer, Apple Watch SE (1st and 2nd generation), and Apple Watch Ultra models.</p>
         </div>
 
         <div class="faq-item">
-            <p class="faq-question">Does the app use any data or require an internet connection?</p>
+            <p class="faq-question">&#x1F310; Does the app require an internet connection?</p>
             <p class="faq-answer">No. Animal Cube Dash works entirely offline. All game data is stored locally on your Apple Watch. An internet connection is only needed for optional Game Center features like leaderboards.</p>
         </div>
 
         <!-- System Requirements -->
-        <h2>System Requirements</h2>
-        <p>
-            <strong>Platform:</strong> Apple Watch<br>
-            <strong>OS:</strong> watchOS 10.0 or later<br>
-            <strong>Compatible Devices:</strong> Apple Watch Series 6+, Apple Watch SE, Apple Watch Ultra
-        </p>
+        <div class="section-card">
+            <h2>&#x1F4F1; System Requirements</h2>
+            <p>
+                <strong>Platform:</strong> Apple Watch<br>
+                <strong>OS:</strong> watchOS 10.0 or later<br>
+                <strong>Compatible Devices:</strong> Apple Watch Series 6+, Apple Watch SE, Apple Watch Ultra
+            </p>
+        </div>
 
         <footer>
             <div>
-                <a href="index.html">Home</a>
-                <a href="privacy.html">Privacy Policy</a>
+                <a href="index.html">&#x1F3E0; Home</a>
+                <a href="privacy.html">&#x1F512; Privacy Policy</a>
             </div>
-            <p class="copyright">&copy; 2025 Ahaana Sistla. All rights reserved.</p>
+            <p class="copyright">&copy; 2025 Ahaana Sistla. All rights reserved. Made with &#x2764;&#xFE0F;</p>
         </footer>
 
     </div>

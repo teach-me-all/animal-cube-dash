@@ -7,9 +7,9 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            color: #fff;
+            font-family: 'Trebuchet MS', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(180deg, #E1F5FE 0%, #FFF9C4 50%, #F3E5F5 100%);
+            color: #333;
             min-height: 100vh;
         }
         .container {
@@ -18,33 +18,39 @@
             padding: 40px 20px;
         }
         .back-link {
-            display: inline-block;
-            color: #4FC3F7;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #E91E63;
             text-decoration: none;
             margin-bottom: 30px;
-            font-size: 0.9em;
+            font-size: 0.95em;
+            font-weight: 700;
+            background: #fff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 2px solid #F8BBD0;
         }
-        .back-link:hover { text-decoration: underline; }
+        .back-link:hover { background: #FCE4EC; }
         h1 {
-            font-size: 2em;
-            margin-bottom: 8px;
-            background: linear-gradient(90deg, #4FC3F7, #E1BEE7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 2.2em;
+            color: #E91E63;
+            text-shadow: 1px 1px 0 rgba(0,0,0,0.05);
+            margin-bottom: 6px;
         }
         .last-updated {
-            color: rgba(255,255,255,0.5);
+            color: #999;
             font-size: 0.85em;
-            margin-bottom: 30px;
+            margin-bottom: 24px;
         }
         h2 {
             font-size: 1.3em;
-            color: #4FC3F7;
-            margin-top: 30px;
+            color: #FF5722;
+            margin-top: 28px;
             margin-bottom: 12px;
         }
         p, li {
-            color: rgba(255,255,255,0.8);
+            color: #555;
             line-height: 1.7;
             margin-bottom: 12px;
             font-size: 0.95em;
@@ -53,32 +59,53 @@
             padding-left: 24px;
             margin-bottom: 12px;
         }
+        li { margin-bottom: 6px; }
+        a { color: #E91E63; }
+
         .highlight-box {
-            background: rgba(79, 195, 247, 0.1);
-            border: 1px solid rgba(79, 195, 247, 0.2);
-            border-radius: 12px;
-            padding: 20px;
+            background: #fff;
+            border: 3px solid #A5D6A7;
+            border-radius: 20px;
+            padding: 20px 24px;
             margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 14px;
         }
+        .highlight-box .box-icon { font-size: 2em; }
         .highlight-box p {
-            color: #4FC3F7;
-            font-weight: 600;
+            color: #2E7D32;
+            font-weight: 700;
             margin-bottom: 0;
+            font-size: 1em;
         }
+
+        .section-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 24px;
+            margin: 16px 0;
+            border: 2px solid #E0E0E0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+        }
+        .section-card h2 {
+            margin-top: 0;
+        }
+
         footer {
             text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 40px;
+            padding: 30px 20px;
+            margin-top: 30px;
         }
         footer a {
-            color: #4FC3F7;
+            color: #E91E63;
             text-decoration: none;
-            margin: 0 12px;
+            font-weight: 700;
+            margin: 0 14px;
         }
         footer a:hover { text-decoration: underline; }
         .copyright {
-            color: rgba(255,255,255,0.4);
+            color: #999;
             font-size: 0.85em;
             margin-top: 12px;
         }
@@ -87,75 +114,94 @@
 <body>
     <div class="container">
 
-        <a href="index.html" class="back-link">&larr; Back to Home</a>
+        <a href="index.html" class="back-link">⬅️ Back to Home</a>
 
-        <h1>Privacy Policy</h1>
+        <h1>🔒 Privacy Policy</h1>
         <p class="last-updated">Last updated: February 20, 2026</p>
 
         <div class="highlight-box">
-            <p>Animal Cube Dash does not collect, store, or share any personal data. Your privacy is important to us.</p>
+            <span class="box-icon">🛡️</span>
+            <p>Animal Cube Dash does NOT collect, store, or share any personal data. Your privacy is safe with us!</p>
         </div>
 
-        <h2>Overview</h2>
-        <p>Animal Cube Dash ("the App") is a watchOS game developed by Ahaana Sistla. This Privacy Policy explains how we handle information when you use our App.</p>
+        <div class="section-card">
+            <h2>📋 Overview</h2>
+            <p>Animal Cube Dash ("the App") is a watchOS game developed by Ahaana Sistla. This Privacy Policy explains how we handle information when you use our App.</p>
+        </div>
 
-        <h2>Information We Do Not Collect</h2>
-        <p>The App does not collect any personal information. Specifically:</p>
-        <ul>
-            <li>We do not collect your name, email address, or contact information</li>
-            <li>We do not collect location data</li>
-            <li>We do not collect device identifiers or usage analytics</li>
-            <li>We do not use cookies or tracking technologies</li>
-            <li>We do not collect health or fitness data</li>
-        </ul>
+        <div class="section-card">
+            <h2>🚫 Information We Do NOT Collect</h2>
+            <p>The App does not collect any personal information. Specifically:</p>
+            <ul>
+                <li>We do <strong>not</strong> collect your name, email address, or contact information</li>
+                <li>We do <strong>not</strong> collect location data</li>
+                <li>We do <strong>not</strong> collect device identifiers or usage analytics</li>
+                <li>We do <strong>not</strong> use cookies or tracking technologies</li>
+                <li>We do <strong>not</strong> collect health or fitness data</li>
+            </ul>
+        </div>
 
-        <h2>Data Stored on Your Device</h2>
-        <p>The App stores game progress data locally on your Apple Watch using UserDefaults. This includes:</p>
-        <ul>
-            <li>Current level and highest level reached</li>
-            <li>Selected skin and unlocked skins</li>
-            <li>Best completion times</li>
-            <li>Total levels completed and total deaths</li>
-            <li>Consecutive perfect level count</li>
-        </ul>
-        <p>This data is stored entirely on your device and is never transmitted to any server or third party. You can reset all game data at any time from within the App.</p>
+        <div class="section-card">
+            <h2>📱 Data Stored on Your Device</h2>
+            <p>The App stores game progress data locally on your Apple Watch. This includes:</p>
+            <ul>
+                <li>Current level and highest level reached</li>
+                <li>Selected skin and unlocked skins</li>
+                <li>Best completion times</li>
+                <li>Total levels completed and total deaths</li>
+                <li>Consecutive perfect level count</li>
+            </ul>
+            <p>This data is stored <strong>entirely on your device</strong> and is never transmitted to any server or third party. You can reset all game data at any time from within the App.</p>
+        </div>
 
-        <h2>Game Center</h2>
-        <p>The App integrates with Apple Game Center for leaderboards and friend features. Game Center is managed by Apple and subject to <a href="https://www.apple.com/legal/privacy/" style="color: #4FC3F7;">Apple's Privacy Policy</a>. When you use Game Center features:</p>
-        <ul>
-            <li>Your Game Center display name may be visible to other players on leaderboards</li>
-            <li>Score submissions are handled by Apple's Game Center service</li>
-            <li>Friend interactions are managed through Apple's Game Center infrastructure</li>
-        </ul>
-        <p>Game Center authentication and data handling are entirely managed by Apple. We do not have access to your Game Center account information.</p>
+        <div class="section-card">
+            <h2>🏆 Game Center</h2>
+            <p>The App integrates with Apple Game Center for leaderboards and friend features. Game Center is managed by Apple and subject to <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>. When you use Game Center:</p>
+            <ul>
+                <li>Your Game Center display name may be visible to other players on leaderboards</li>
+                <li>Score submissions are handled by Apple's Game Center service</li>
+                <li>Friend interactions are managed through Apple's Game Center infrastructure</li>
+            </ul>
+            <p>We do not have access to your Game Center account information.</p>
+        </div>
 
-        <h2>Messages Integration</h2>
-        <p>The App allows you to share brag messages via the Messages app. When you choose to share via Messages:</p>
-        <ul>
-            <li>The App opens the Messages app using the system URL scheme</li>
-            <li>We do not have access to your contacts or message content</li>
-            <li>Message sending is handled entirely by the Messages app</li>
-        </ul>
+        <div class="section-card">
+            <h2>💬 Messages Integration</h2>
+            <p>The App allows you to share brag messages via the Messages app. When you choose to share:</p>
+            <ul>
+                <li>The App opens the Messages app using the system URL scheme</li>
+                <li>We do <strong>not</strong> have access to your contacts or message content</li>
+                <li>Message sending is handled entirely by the Messages app</li>
+            </ul>
+        </div>
 
-        <h2>Third-Party Services</h2>
-        <p>The App does not use any third-party analytics, advertising, or data collection services. There are no ads in the App.</p>
+        <div class="section-card">
+            <h2>🚫 Third-Party Services</h2>
+            <p>The App does <strong>not</strong> use any third-party analytics, advertising, or data collection services. There are <strong>no ads</strong> in the App.</p>
+        </div>
 
-        <h2>Children's Privacy</h2>
-        <p>Animal Cube Dash is designed to be family-friendly and suitable for children of all ages. We do not knowingly collect any personal information from children or any other users. The App complies with the Children's Online Privacy Protection Act (COPPA) and similar regulations.</p>
+        <div class="section-card">
+            <h2>👨‍👩‍👧‍👦 Children's Privacy</h2>
+            <p>Animal Cube Dash is designed to be family-friendly and suitable for children of all ages. We do not knowingly collect any personal information from children or any other users. The App complies with the Children's Online Privacy Protection Act (COPPA) and similar regulations.</p>
+        </div>
 
-        <h2>Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated "Last updated" date. We encourage you to review this page periodically.</p>
+        <div class="section-card">
+            <h2>📝 Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated date.</p>
+        </div>
 
-        <h2>Contact Us</h2>
-        <p>If you have any questions or concerns about this Privacy Policy or the App, please contact us at:</p>
-        <p><a href="mailto:support@animalcubedash.com" style="color: #4FC3F7;">support@animalcubedash.com</a></p>
+        <div class="section-card">
+            <h2>📧 Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+            <p><strong><a href="mailto:support@animalcubedash.com">support@animalcubedash.com</a></strong></p>
+        </div>
 
         <footer>
             <div>
-                <a href="index.html">Home</a>
-                <a href="support.html">Support</a>
+                <a href="index.html">🏠 Home</a>
+                <a href="support.html">💬 Support</a>
             </div>
-            <p class="copyright">&copy; 2025 Ahaana Sistla. All rights reserved.</p>
+            <p class="copyright">&copy; 2025 Ahaana Sistla. All rights reserved. Made with ❤️</p>
         </footer>
 
     </div>
