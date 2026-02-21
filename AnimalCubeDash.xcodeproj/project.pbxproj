@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1B2C3D4E5F60001000052 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000052 /* GameKit.framework */; };
 		A1B2C3D4E5F60001000001 /* AnimalCubeDashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000001 /* AnimalCubeDashApp.swift */; };
 		A1B2C3D4E5F60001000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000002 /* ContentView.swift */; };
 		A1B2C3D4E5F60001000003 /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000003 /* HomeScreenView.swift */; };
@@ -45,23 +46,22 @@
 		A1B2C3D4E5F60001000036 /* SkinDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000036 /* SkinDefinition.swift */; };
 		A1B2C3D4E5F60001000037 /* EnvironmentDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000037 /* EnvironmentDrawing.swift */; };
 		A1B2C3D4E5F60001000038 /* ObstacleDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000038 /* ObstacleDrawing.swift */; };
-		A1B2C3D4E5F60001000070 /* SkinPreviewScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000070 /* SkinPreviewScene.swift */; };
 		A1B2C3D4E5F60001000039 /* GameProgressStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000039 /* GameProgressStore.swift */; };
 		A1B2C3D4E5F60001000040 /* GhostRunRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000040 /* GhostRunRecorder.swift */; };
 		A1B2C3D4E5F60001000041 /* GhostRunPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000041 /* GhostRunPlayer.swift */; };
 		A1B2C3D4E5F60001000042 /* DailyChallengeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000042 /* DailyChallengeManager.swift */; };
 		A1B2C3D4E5F60001000043 /* GameCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000043 /* GameCenterManager.swift */; };
 		A1B2C3D4E5F60001000044 /* BragMessageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000044 /* BragMessageGenerator.swift */; };
-		A1B2C3D4E5F60001000080 /* AppUpdateChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000080 /* AppUpdateChecker.swift */; };
 		A1B2C3D4E5F60001000045 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000045 /* Constants.swift */; };
 		A1B2C3D4E5F60001000046 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000046 /* Extensions.swift */; };
 		A1B2C3D4E5F60001000047 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000047 /* Assets.xcassets */; };
 		A1B2C3D4E5F60001000048 /* ShareBragView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000048 /* ShareBragView.swift */; };
 		A1B2C3D4E5F60001000049 /* GiftBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000049 /* GiftBoxView.swift */; };
-		A1B2C3D4E5F60001000051 /* CommonSkinUnlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000051 /* CommonSkinUnlockView.swift */; };
 		A1B2C3D4E5F60001000050 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000050 /* SpriteKit.framework */; };
-		A1B2C3D4E5F60001000052 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000052 /* GameKit.framework */; };
+		A1B2C3D4E5F60001000051 /* CommonSkinUnlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000051 /* CommonSkinUnlockView.swift */; };
 		A1B2C3D4E5F60001000053 /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000053 /* WatchKit.framework */; };
+		A1B2C3D4E5F60001000070 /* SkinPreviewScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000070 /* SkinPreviewScene.swift */; };
+		A1B2C3D4E5F60001000080 /* AppUpdateChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000080 /* AppUpdateChecker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,24 +104,24 @@
 		A1B2C3D4E5F60002000036 /* SkinDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinDefinition.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60002000037 /* EnvironmentDrawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentDrawing.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60002000038 /* ObstacleDrawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleDrawing.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F60002000070 /* SkinPreviewScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinPreviewScene.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60002000039 /* GameProgressStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProgressStore.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60002000040 /* GhostRunRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostRunRecorder.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60002000041 /* GhostRunPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostRunPlayer.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60002000042 /* DailyChallengeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyChallengeManager.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60002000043 /* GameCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterManager.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60002000044 /* BragMessageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BragMessageGenerator.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F60002000080 /* AppUpdateChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateChecker.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60002000045 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60002000046 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60002000047 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1B2C3D4E5F60002000048 /* ShareBragView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareBragView.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60002000049 /* GiftBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftBoxView.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F60002000051 /* CommonSkinUnlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonSkinUnlockView.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60002000050 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		A1B2C3D4E5F60002000051 /* CommonSkinUnlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonSkinUnlockView.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60002000052 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		A1B2C3D4E5F60002000053 /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = System/Library/Frameworks/WatchKit.framework; sourceTree = SDKROOT; };
 		A1B2C3D4E5F60002000060 /* AnimalCubeDash Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AnimalCubeDash Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B2C3D4E5F60002000070 /* SkinPreviewScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinPreviewScene.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F60002000080 /* AppUpdateChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateChecker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -553,6 +553,7 @@
 				CODE_SIGN_ENTITLEMENTS = "AnimalCubeDash Watch App/AnimalCubeDash Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F5D5362ZUD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Animal Cube Dash";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -579,6 +580,7 @@
 				CODE_SIGN_ENTITLEMENTS = "AnimalCubeDash Watch App/AnimalCubeDash Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F5D5362ZUD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Animal Cube Dash";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
