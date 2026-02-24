@@ -62,6 +62,9 @@
 		A1B2C3D4E5F60001000053 /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000053 /* WatchKit.framework */; };
 		A1B2C3D4E5F60001000070 /* SkinPreviewScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000070 /* SkinPreviewScene.swift */; };
 		A1B2C3D4E5F60001000080 /* AppUpdateChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000080 /* AppUpdateChecker.swift */; };
+		B1C2D3E4F5A60001000061 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2D3E4F5A60002000061 /* main.swift */; };
+		B1C2D3E4F5A60001000062 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1C2D3E4F5A60002000062 /* Assets.xcassets */; };
+		B1C2D3E4F5A60001000060 /* AnimalCubeDash Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000060 /* AnimalCubeDash Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,7 +125,25 @@
 		A1B2C3D4E5F60002000060 /* AnimalCubeDash Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AnimalCubeDash Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B2C3D4E5F60002000070 /* SkinPreviewScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinPreviewScene.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60002000080 /* AppUpdateChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateChecker.swift; sourceTree = "<group>"; };
+		B1C2D3E4F5A60002000060 /* AnimalCubeDash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalCubeDash.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1C2D3E4F5A60002000061 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		B1C2D3E4F5A60002000062 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B1C2D3E4F5A60002000063 /* AnimalCubeDash.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AnimalCubeDash.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B1C2D3E4F5A60007000003 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				B1C2D3E4F5A60001000060 /* AnimalCubeDash Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A1B2C3D4E5F60003000001 /* Frameworks */ = {
@@ -135,16 +156,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B1C2D3E4F5A60003000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		A1B2C3D4E5F60004000001 = {
 			isa = PBXGroup;
 			children = (
+				B1C2D3E4F5A60004000014 /* AnimalCubeDash */,
 				A1B2C3D4E5F60004000002 /* AnimalCubeDash Watch App */,
 				A1B2C3D4E5F60004000012 /* Frameworks */,
 				A1B2C3D4E5F60004000013 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		B1C2D3E4F5A60004000014 /* AnimalCubeDash */ = {
+			isa = PBXGroup;
+			children = (
+				B1C2D3E4F5A60002000061 /* main.swift */,
+				B1C2D3E4F5A60002000062 /* Assets.xcassets */,
+				B1C2D3E4F5A60002000063 /* AnimalCubeDash.entitlements */,
+			);
+			path = AnimalCubeDash;
 			sourceTree = "<group>";
 		};
 		A1B2C3D4E5F60004000002 /* AnimalCubeDash Watch App */ = {
@@ -292,6 +331,7 @@
 		A1B2C3D4E5F60004000013 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				B1C2D3E4F5A60002000060 /* AnimalCubeDash.app */,
 				A1B2C3D4E5F60002000060 /* AnimalCubeDash Watch App.app */,
 			);
 			name = Products;
@@ -300,6 +340,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B1C2D3E4F5A60005000002 /* AnimalCubeDash */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1C2D3E4F5A60008000002 /* Build configuration list for PBXNativeTarget "AnimalCubeDash" */;
+			buildPhases = (
+				B1C2D3E4F5A60006000002 /* Sources */,
+				B1C2D3E4F5A60003000002 /* Frameworks */,
+				B1C2D3E4F5A60007000002 /* Resources */,
+				B1C2D3E4F5A60007000003 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B1C2D3E4F5A60005000003 /* PBXTargetDependency */,
+			);
+			name = AnimalCubeDash;
+			productName = AnimalCubeDash;
+			productReference = B1C2D3E4F5A60002000060 /* AnimalCubeDash.app */;
+			productType = "com.apple.product-type.application";
+		};
 		A1B2C3D4E5F60005000001 /* AnimalCubeDash Watch App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1B2C3D4E5F60008000001 /* Build configuration list for PBXNativeTarget "AnimalCubeDash Watch App" */;
@@ -319,6 +378,24 @@
 		};
 /* End PBXNativeTarget section */
 
+/* Begin PBXContainerItemProxy section */
+		B1C2D3E4F5A60005000004 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1B2C3D4E5F60009000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1B2C3D4E5F60005000001;
+			remoteInfo = "AnimalCubeDash Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXTargetDependency section */
+		B1C2D3E4F5A60005000003 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1B2C3D4E5F60005000001 /* AnimalCubeDash Watch App */;
+			targetProxy = B1C2D3E4F5A60005000004 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXProject section */
 		A1B2C3D4E5F60009000001 /* Project object */ = {
 			isa = PBXProject;
@@ -329,6 +406,9 @@
 				TargetAttributes = {
 					A1B2C3D4E5F60005000001 = {
 						CreatedOnToolsVersion = 15.0;
+					};
+					B1C2D3E4F5A60005000002 = {
+						CreatedOnToolsVersion = 2620;
 					};
 				};
 			};
@@ -345,6 +425,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				B1C2D3E4F5A60005000002 /* AnimalCubeDash */,
 				A1B2C3D4E5F60005000001 /* AnimalCubeDash Watch App */,
 			);
 		};
@@ -356,6 +437,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1B2C3D4E5F60001000047 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1C2D3E4F5A60007000002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1C2D3E4F5A60001000062 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +506,14 @@
 				A1B2C3D4E5F60001000048 /* ShareBragView.swift in Sources */,
 				A1B2C3D4E5F60001000049 /* GiftBoxView.swift in Sources */,
 				A1B2C3D4E5F60001000051 /* CommonSkinUnlockView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1C2D3E4F5A60006000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1C2D3E4F5A60001000061 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,7 +648,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "AnimalCubeDash Watch App/AnimalCubeDash Watch App.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				PROVISIONING_PROFILE_SPECIFIER = "AnimalCubeDash Watch AppStore Distribution";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F5D5362ZUD;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -559,13 +658,13 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKApplication = YES;
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.animalcubedash;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.animalcubedash;
+				PRODUCT_BUNDLE_IDENTIFIER = com.animalcubedash.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -579,7 +678,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "AnimalCubeDash Watch App/AnimalCubeDash Watch App.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				PROVISIONING_PROFILE_SPECIFIER = "AnimalCubeDash Watch AppStore Distribution";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F5D5362ZUD;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -587,18 +688,75 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKApplication = YES;
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.animalcubedash;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.animalcubedash;
+				PRODUCT_BUNDLE_IDENTIFIER = com.animalcubedash.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
-				SKIP_INSTALL = NO;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
 				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		B1C2D3E4F5A6000A000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AnimalCubeDash/AnimalCubeDash.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				PROVISIONING_PROFILE_SPECIFIER = "AnimalCubeDash AppStore Distribution";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F5D5362ZUD;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Animal Cube Dash";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.animalcubedash;
+				PRODUCT_NAME = AnimalCubeDash;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		B1C2D3E4F5A6000A000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AnimalCubeDash/AnimalCubeDash.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				PROVISIONING_PROFILE_SPECIFIER = "AnimalCubeDash AppStore Distribution";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F5D5362ZUD;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Animal Cube Dash";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.animalcubedash;
+				PRODUCT_NAME = AnimalCubeDash;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -619,6 +777,15 @@
 			buildConfigurations = (
 				A1B2C3D4E5F6000A000001 /* Debug */,
 				A1B2C3D4E5F6000A000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1C2D3E4F5A60008000002 /* Build configuration list for PBXNativeTarget "AnimalCubeDash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1C2D3E4F5A6000A000003 /* Debug */,
+				B1C2D3E4F5A6000A000004 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
