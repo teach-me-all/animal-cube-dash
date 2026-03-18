@@ -46,6 +46,7 @@ enum AnimalSkin: String, CaseIterable, Codable {
     case koala
     case raccoon
     case deer
+    case brownBear
 
     // Ultra Rare
     case tiger
@@ -54,6 +55,7 @@ enum AnimalSkin: String, CaseIterable, Codable {
     case dolphin
     case redPanda
     case chameleon
+    case polarBear
 
     // Epic
     case dragon
@@ -93,12 +95,14 @@ enum AnimalSkin: String, CaseIterable, Codable {
         case .koala: return "Koala"
         case .raccoon: return "Raccoon"
         case .deer: return "Deer"
+        case .brownBear: return "Brown Bear"
         case .tiger: return "Tiger"
         case .wolf: return "Wolf"
         case .lion: return "Lion"
         case .dolphin: return "Dolphin"
         case .redPanda: return "Red Panda"
         case .chameleon: return "Chameleon"
+        case .polarBear: return "Polar Bear"
         case .dragon: return "Dragon"
         case .phoenix: return "Phoenix"
         case .unicorn: return "Unicorn"
@@ -124,9 +128,9 @@ enum AnimalSkin: String, CaseIterable, Codable {
         switch self {
         case .cat, .dog, .bunny, .frog, .chick, .hamster, .duck:
             return .common
-        case .panda, .fox, .owl, .penguin, .koala, .raccoon, .deer:
+        case .panda, .fox, .owl, .penguin, .koala, .raccoon, .deer, .brownBear:
             return .rare
-        case .tiger, .wolf, .lion, .dolphin, .redPanda, .chameleon:
+        case .tiger, .wolf, .lion, .dolphin, .redPanda, .chameleon, .polarBear:
             return .ultraRare
         case .dragon, .phoenix, .unicorn, .shark, .goldenTiger, .arcticFox, .snowyOwl:
             return .epic
@@ -152,12 +156,14 @@ enum AnimalSkin: String, CaseIterable, Codable {
         case .koala: return SKColor(hex: 0x9E9E9E)
         case .raccoon: return SKColor(hex: 0x78909C)
         case .deer: return SKColor(hex: 0xBE8C63)
+        case .brownBear: return SKColor(hex: 0x8B5E3C)
         case .tiger: return SKColor(hex: 0xFFA502)
         case .wolf: return SKColor(hex: 0x636E72)
         case .lion: return SKColor(hex: 0xF5A623)
         case .dolphin: return SKColor(hex: 0x74B9FF)
         case .redPanda: return SKColor(hex: 0xD35400)
         case .chameleon: return SKColor(hex: 0x00E676)
+        case .polarBear: return SKColor(hex: 0xEFF6FF)
         case .dragon: return SKColor(hex: 0x6C5CE7)
         case .phoenix: return SKColor(hex: 0xFF6B6B)
         case .unicorn: return SKColor(hex: 0xE8DAEF)
@@ -195,12 +201,14 @@ enum AnimalSkin: String, CaseIterable, Codable {
         case .koala: return SKColor(hex: 0x757575)
         case .raccoon: return SKColor(hex: 0x37474F)
         case .deer: return SKColor(hex: 0x8D6E43)
+        case .brownBear: return SKColor(hex: 0x5D3A1A)
         case .tiger: return SKColor(hex: 0xD63031)
         case .wolf: return SKColor(hex: 0x2D3436)
         case .lion: return SKColor(hex: 0xE8962E)
         case .dolphin: return SKColor(hex: 0x0984E3)
         case .redPanda: return SKColor(hex: 0xA04000)
         case .chameleon: return SKColor(hex: 0x00C853)
+        case .polarBear: return SKColor(hex: 0xBFDBFE)
         case .dragon: return SKColor(hex: 0xFD79A8)
         case .phoenix: return SKColor(hex: 0xFFC312)
         case .unicorn: return SKColor(hex: 0xA29BFE)
@@ -226,7 +234,7 @@ enum AnimalSkin: String, CaseIterable, Codable {
         switch self {
         case .cat, .tiger, .fox, .goldenTiger, .arcticFox: return .pointed
         case .dog: return .floppy
-        case .panda, .koala: return .round
+        case .panda, .koala, .brownBear, .polarBear: return .round
         case .dragon: return .horn
         case .bunny: return .tall
         case .owl, .snowyOwl: return .tuft
@@ -271,6 +279,7 @@ enum AnimalSkin: String, CaseIterable, Codable {
         case .koala: return 110
         case .raccoon: return 120
         case .deer: return 130
+        case .brownBear: return 135
         // Ultra Rare: continue +10
         case .tiger: return 140
         case .wolf: return 150
@@ -278,6 +287,7 @@ enum AnimalSkin: String, CaseIterable, Codable {
         case .dolphin: return 170
         case .redPanda: return 180
         case .chameleon: return 190
+        case .polarBear: return 195
         // Epic: continue +10
         case .dragon: return 200
         case .phoenix: return 210
@@ -317,12 +327,14 @@ enum AnimalSkin: String, CaseIterable, Codable {
         case .koala: return "🐨"
         case .raccoon: return "🦝"
         case .deer: return "🦌"
+        case .brownBear: return "🐻"
         case .tiger: return "🐯"
         case .wolf: return "🐺"
         case .lion: return "🦁"
         case .dolphin: return "🐬"
         case .redPanda: return "🔴"
         case .chameleon: return "🦎"
+        case .polarBear: return "🐻‍❄️"
         case .dragon: return "🐲"
         case .phoenix: return "🔥"
         case .unicorn: return "🦄"

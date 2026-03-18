@@ -171,8 +171,10 @@ final class PlayerCube: SKNode {
         duckTimer?.invalidate()
         duckTimer = nil
 
-        // Restore full physics body
+        // Restore full physics body, preserving current velocity
+        let vel = physicsBody?.velocity ?? .zero
         setupPhysics()
+        physicsBody?.velocity = vel
 
         // Restore visual
         let restore = SKAction.scaleY(to: 1.0, duration: 0.1)

@@ -10,6 +10,7 @@ struct AnimalCubeDashApp: App {
                 .environmentObject(store)
                 .onAppear {
                     GameCenterManager.shared.authenticate()
+                    _ = WatchConnectivityManager.shared // activate session on launch
                 }
         }
     }

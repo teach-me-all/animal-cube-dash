@@ -12,6 +12,9 @@ extension GameScene: SKPhysicsContactDelegate {
 
         // Player + Spike
         if bodyA.categoryBitMask == PhysicsCategory.player && bodyB.categoryBitMask == PhysicsCategory.spike {
+            if let spikeNode = bodyB.node {
+                lastHitSpikeX = spikeNode.position.x
+            }
             loseLife()
             return
         }

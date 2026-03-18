@@ -81,6 +81,9 @@ final class GameProgressStore: ObservableObject {
                 return (key, $0.value)
             })
         }
+
+        // Retroactively unlock any skins earned before the unlock system was in place
+        checkSkinUnlocks()
     }
 
     @discardableResult
@@ -97,8 +100,8 @@ final class GameProgressStore: ObservableObject {
 
         if level >= highestLevel {
             highestLevel = level + 1
-            currentLevel = level + 1
         }
+        currentLevel = highestLevel  // always resume at the frontier
 
         // Best time
         if bestTimes[level] == nil || time < bestTimes[level]! {
@@ -108,25 +111,36 @@ final class GameProgressStore: ObservableObject {
 
         // Check skin unlocks
         let livesRemaining = Constants.maxLives - deaths
-        return checkSkinUnlocks(livesRemaining: livesRemaining)
+        let unlockedSkin = checkSkinUnlocks(livesRemaining: livesRemaining)
+
+        // Sync progress to paired iPhone
+        #if os(watchOS)
+        WatchConnectivityManager.shared.syncProgress(self)
+        #endif
+
+        return unlockedSkin
     }
 
     @discardableResult
     func checkSkinUnlocks(livesRemaining: Int = 0) -> AnimalSkin? {
         for skin in AnimalSkin.allCases {
             if !unlockedSkins.contains(skin) && highestLevel > skin.unlockLevel {
-                // Common skins require completing 10 levels (cat is free)
-                // Rare, Ultra Rare, and Epic require finishing with 2+ lives
-                // Legendary requires 5 consecutive levels with no lives lost
-                if skin.rarity == .common && totalLevelsCompleted >= 10 {
-                    unlockedSkins.append(skin)
-                    return skin
-                } else if skin.rarity == .legendary && consecutivePerfectLevels >= 5 {
-                    unlockedSkins.append(skin)
-                    return skin
-                } else if skin.rarity != .common && skin.rarity != .legendary && livesRemaining >= 2 {
-                    unlockedSkins.append(skin)
-                    return skin
+                switch skin.rarity {
+                case .common, .rare, .ultraRare:
+                    if totalLevelsCompleted >= 10 {
+                        unlockedSkins.append(skin)
+                        return skin
+                    }
+                case .epic:
+                    if livesRemaining >= 2 {
+                        unlockedSkins.append(skin)
+                        return skin
+                    }
+                case .legendary:
+                    if consecutivePerfectLevels >= 5 {
+                        unlockedSkins.append(skin)
+                        return skin
+                    }
                 }
             }
         }

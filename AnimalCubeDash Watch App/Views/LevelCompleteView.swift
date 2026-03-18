@@ -76,15 +76,15 @@ struct LevelCompleteView: View {
                 .padding(.top, 2)
 
                 // Buttons pinned to bottom
-                VStack(spacing: 2) {
+                VStack(spacing: 4) {
                     Button(action: onNextLevel) {
                         Text("Next Level")
-                            .font(.system(size: 10, weight: .bold, design: .rounded))
+                            .font(.system(size: 11, weight: .bold, design: .rounded))
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
-                            .padding(.vertical, 3)
+                            .padding(.vertical, 5)
                             .background(
-                                RoundedRectangle(cornerRadius: 6)
+                                RoundedRectangle(cornerRadius: 7)
                                     .fill(
                                         LinearGradient(
                                             colors: [.green, .mint],
@@ -100,15 +100,15 @@ struct LevelCompleteView: View {
                     Button(action: onBrag) {
                         HStack(spacing: 3) {
                             Image(systemName: "megaphone.fill")
-                                .font(.system(size: 7))
+                                .font(.system(size: 8))
                             Text("Brag")
-                                .font(.system(size: 10, weight: .bold, design: .rounded))
+                                .font(.system(size: 11, weight: .bold, design: .rounded))
                         }
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
-                        .padding(.vertical, 3)
+                        .padding(.vertical, 5)
                         .background(
-                            RoundedRectangle(cornerRadius: 6)
+                            RoundedRectangle(cornerRadius: 7)
                                 .fill(
                                     LinearGradient(
                                         colors: [.orange, .red],
@@ -123,14 +123,20 @@ struct LevelCompleteView: View {
 
                     Button(action: onHome) {
                         Text("Home")
-                            .font(.system(size: 8, weight: .medium, design: .rounded))
-                            .foregroundColor(.white.opacity(0.6))
+                            .font(.system(size: 9, weight: .medium, design: .rounded))
+                            .foregroundColor(.white.opacity(0.7))
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 4)
+                            .background(
+                                RoundedRectangle(cornerRadius: 7)
+                                    .fill(Color.white.opacity(0.12))
+                            )
                     }
                     .buttonStyle(.plain)
                 }
-                .padding(.horizontal, 24)
+                .padding(.horizontal, 20)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-                .padding(.bottom, 4)
+                .padding(.bottom, 1)
                 .transition(.scale(scale: 0.5).combined(with: .opacity))
                 .onAppear {
                     titleScale = 1.0

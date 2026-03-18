@@ -9,6 +9,7 @@ struct iOSHomeView: View {
     @EnvironmentObject var store: iOSProgressStore
     @EnvironmentObject var connectivity: PhoneConnectivityManager
 
+    @StateObject private var updateChecker = AppUpdateChecker.shared
     @State private var isPlayActive = false
     @State private var pendingLevel = 0
 
@@ -38,6 +39,9 @@ struct iOSHomeView: View {
                 ScrollView {
                     VStack(spacing: 20) {
                         headerSection
+                        if updateChecker.updateAvailable {
+                            updateBanner
+                        }
                         playCard
                         statsGrid
                         currentSkinCard
@@ -45,6 +49,7 @@ struct iOSHomeView: View {
                     .padding(.horizontal, 20)
                     .padding(.bottom, 32)
                 }
+                .onAppear { updateChecker.checkForUpdate() }
             }
             .navigationBarHidden(true)
             .navigationDestination(isPresented: $isPlayActive) {
@@ -52,6 +57,41 @@ struct iOSHomeView: View {
                     .environmentObject(store)
             }
         }
+    }
+
+    // MARK: - Update Banner
+
+    private var updateBanner: some View {
+        HStack(spacing: 10) {
+            Image(systemName: "arrow.down.circle.fill")
+                .font(.system(size: 18))
+                .foregroundColor(.white)
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Update Available!")
+                    .font(.system(size: 14, weight: .heavy, design: .rounded))
+                    .foregroundColor(.white)
+                if let v = updateChecker.latestVersion {
+                    Text("Version \(v) is on the App Store")
+                        .font(.system(size: 12, design: .rounded))
+                        .foregroundColor(.white.opacity(0.85))
+                }
+            }
+            Spacer()
+            if let url = URL(string: "https://apps.apple.com/us/app/animal-cube-dash/id6759482553") {
+                Link("Update", destination: url)
+                    .font(.system(size: 13, weight: .bold, design: .rounded))
+                    .foregroundColor(.black)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 6)
+                    .background(Capsule().fill(Color.white))
+            }
+        }
+        .padding(14)
+        .background(
+            RoundedRectangle(cornerRadius: 14)
+                .fill(Color.orange)
+                .shadow(color: .orange.opacity(0.4), radius: 6)
+        )
     }
 
     // MARK: - Header

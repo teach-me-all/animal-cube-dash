@@ -33,7 +33,7 @@ struct CommonSkinUnlockView: View {
                         .transition(.opacity)
 
                     // "COMMON SKIN UNLOCKED!" in cool gradient
-                    Text("COMMON SKIN UNLOCKED!")
+                    Text("\(skin.rarity.displayName) Skin Unlocked!")
                         .font(.system(size: 13, weight: .heavy, design: .rounded))
                         .foregroundStyle(
                             LinearGradient(
@@ -43,6 +43,7 @@ struct CommonSkinUnlockView: View {
                             )
                         )
                         .shadow(color: .cyan.opacity(0.6), radius: 6)
+                        .multilineTextAlignment(.center)
                         .transition(.scale.combined(with: .opacity))
                 }
 

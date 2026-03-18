@@ -28,6 +28,7 @@ final class NodePool {
 
     func getQuicksand(width: CGFloat) -> QuicksandNode {
         if let recycled = quicksandPool.popLast() {
+            recycled.removeAllActions()
             return recycled
         }
         return QuicksandNode(width: width)

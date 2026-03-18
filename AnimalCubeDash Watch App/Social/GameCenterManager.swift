@@ -12,6 +12,7 @@ final class GameCenterManager: ObservableObject {
     private init() {}
 
     func authenticate() {
+        #if os(watchOS)
         GKLocalPlayer.local.authenticateHandler = { [weak self] (error: Error?) in
             DispatchQueue.main.async {
                 guard let self = self else { return }
@@ -23,6 +24,19 @@ final class GameCenterManager: ObservableObject {
                 }
             }
         }
+        #else
+        GKLocalPlayer.local.authenticateHandler = { [weak self] (_, error) in
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                self.isAuthenticated = GKLocalPlayer.local.isAuthenticated
+                if self.isAuthenticated {
+                    self.loadFriendsStatus()
+                } else if let error = error {
+                    print("Game Center auth error: \(error.localizedDescription)")
+                }
+            }
+        }
+        #endif
     }
 
     func submitScore(_ score: Int, leaderboardID: String) {

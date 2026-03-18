@@ -5,15 +5,13 @@ extension GameScene {
     // On watchOS, taps are forwarded from SwiftUI gesture recognizers.
     // Single tap = jump immediately. Double tap within window = high jump.
 
-    private static var lastTapTime: TimeInterval = 0
-
     func handleTap() {
         // Allow tap during playing state; also allow during respawn for responsiveness
         guard stateMachine.currentStateType == .playing else { return }
 
         let now = Date().timeIntervalSinceReferenceDate
-        let elapsed = now - GameScene.lastTapTime
-        GameScene.lastTapTime = now
+        let elapsed = now - lastTapTime
+        lastTapTime = now
 
         let isHighJump = elapsed < Constants.doubleTapWindow
 

@@ -111,7 +111,7 @@ struct GiftBoxView: View {
                         .foregroundColor(.white)
                         .opacity(skinReveal ? 1 : 0)
 
-                    Text("New skin unlocked!")
+                    Text("\(skin.rarity.displayName) Skin Unlocked!")
                         .font(.system(size: 9, weight: .medium, design: .rounded))
                         .foregroundColor(.white.opacity(0.6))
                         .opacity(skinReveal ? 1 : 0)

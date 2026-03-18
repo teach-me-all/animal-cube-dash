@@ -1,6 +1,11 @@
 import SwiftUI
 import SpriteKit
 
+struct BragItem: Identifiable {
+    let id = UUID()
+    let message: String
+}
+
 class GameSceneHolder: ObservableObject {
     let scene: GameScene
 
@@ -19,8 +24,7 @@ struct GameContainerView: View {
     @State private var crownValue: Double = 0
     @State private var showLevelComplete = false
     @State private var showGameOver = false
-    @State private var showBragSheet = false
-    @State private var bragText = ""
+    @State private var bragItem: BragItem? = nil
     @State private var completedLevel: Int = 0
     @State private var showGiftBox = false
     @State private var showCommonUnlock = false
@@ -62,7 +66,7 @@ struct GameContainerView: View {
                         if let skin = skin {
                             unlockedSkin = skin
                             pendingAction = { scene.nextLevel() }
-                            if skin.rarity == .common {
+                            if skin.rarity == .common || skin.rarity == .rare || skin.rarity == .ultraRare {
                                 showCommonUnlock = true
                             } else {
                                 showGiftBox = true
@@ -73,8 +77,8 @@ struct GameContainerView: View {
                     },
                     onBrag: {
                         let deaths = Constants.maxLives - livesRemaining
-                        bragText = BragMessageGenerator.shareMessage(level: completedLevel, livesRemaining: livesRemaining, deaths: deaths)
-                        showBragSheet = true
+                        let msg = BragMessageGenerator.shareMessage(level: completedLevel, livesRemaining: livesRemaining, deaths: deaths)
+                        bragItem = BragItem(message: msg)
                     },
                     onHome: {
                         showLevelComplete = false
@@ -82,7 +86,7 @@ struct GameContainerView: View {
                         if let skin = skin {
                             unlockedSkin = skin
                             pendingAction = { dismiss() }
-                            if skin.rarity == .common {
+                            if skin.rarity == .common || skin.rarity == .rare || skin.rarity == .ultraRare {
                                 showCommonUnlock = true
                             } else {
                                 showGiftBox = true
@@ -156,8 +160,8 @@ struct GameContainerView: View {
             scene.updateCrownValue(newValue)
         }
         .navigationBarBackButtonHidden(gameState == .playing)
-        .sheet(isPresented: $showBragSheet) {
-            ShareBragView(message: bragText)
+        .sheet(item: $bragItem) { item in
+            ShareBragView(message: item.message)
         }
         .onAppear {
             scene.onStateChange = { state in
