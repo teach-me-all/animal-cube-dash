@@ -65,6 +65,63 @@
 		B1C2D3E4F5A60001000061 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2D3E4F5A60002000061 /* main.swift */; };
 		B1C2D3E4F5A60001000062 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1C2D3E4F5A60002000062 /* Assets.xcassets */; };
 		B1C2D3E4F5A60001000060 /* AnimalCubeDash Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000060 /* AnimalCubeDash Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C1D2E3F4A5B60001000001 /* AnimalCubeDashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D2E3F4A5B60002000001 /* AnimalCubeDashApp.swift */; };
+		C1D2E3F4A5B60001000002 /* AnimalSkinModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D2E3F4A5B60002000002 /* AnimalSkinModels.swift */; };
+		C1D2E3F4A5B60001000003 /* iOSProgressStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D2E3F4A5B60002000003 /* iOSProgressStore.swift */; };
+		C1D2E3F4A5B60001000004 /* PhoneConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D2E3F4A5B60002000004 /* PhoneConnectivityManager.swift */; };
+		C1D2E3F4A5B60001000005 /* iOSHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D2E3F4A5B60002000005 /* iOSHomeView.swift */; };
+		C1D2E3F4A5B60001000006 /* iOSSkinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D2E3F4A5B60002000006 /* iOSSkinsView.swift */; };
+		C1D2E3F4A5B60001000007 /* iOSLeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D2E3F4A5B60002000007 /* iOSLeaderboardView.swift */; };
+		C1D2E3F4A5B60001000008 /* iOSFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D2E3F4A5B60002000008 /* iOSFriendsView.swift */; };
+		C1D2E3F4A5B60001000013 /* iOSSkinUnlockViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D2E3F4A5B60002000011 /* iOSSkinUnlockViews.swift */; };
+		C1D2E3F4A5B60001000020 /* AdConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D2E3F4A5B60002000020 /* AdConfig.swift */; };
+		C1D2E3F4A5B60001000021 /* AdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D2E3F4A5B60002000021 /* AdManager.swift */; };
+		C1D2E3F4A5B60001000022 /* AdAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D2E3F4A5B60002000022 /* AdAnalytics.swift */; };
+		C1D2E3F4A5B60001000023 /* BannerAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D2E3F4A5B60002000023 /* BannerAdView.swift */; };
+		E1F2A3B4C5D60001000003 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = E1F2A3B4C5D60001000002 /* GoogleMobileAds */; };
+		C1D2E3F4A5B60001000009 /* WatchConnectivity.framework in Frameworks (iOS) */ = {isa = PBXBuildFile; fileRef = C1D2E3F4A5B60002000009 /* WatchConnectivity.framework */; };
+		C1D2E3F4A5B60001000010 /* WatchConnectivity.framework in Frameworks (Watch) */ = {isa = PBXBuildFile; fileRef = C1D2E3F4A5B60002000009 /* WatchConnectivity.framework */; };
+		C1D2E3F4A5B60001000011 /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D2E3F4A5B60002000010 /* WatchConnectivityManager.swift */; };
+		C1D2E3F4A5B60001000012 /* GameKit.framework in Frameworks (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000052 /* GameKit.framework */; };
+		D1E2F3A4B5C60001000038 /* SpriteKit.framework in Frameworks (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000050 /* SpriteKit.framework */; };
+		D1E2F3A4B5C60001000001 /* GameScene.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000010 /* GameScene.swift */; };
+		D1E2F3A4B5C60001000002 /* GameScene+Physics.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000011 /* GameScene+Physics.swift */; };
+		D1E2F3A4B5C60001000003 /* GameScene+Input.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000012 /* GameScene+Input.swift */; };
+		D1E2F3A4B5C60001000004 /* GameCamera.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000013 /* GameCamera.swift */; };
+		D1E2F3A4B5C60001000005 /* GameStateMachine.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000014 /* GameStateMachine.swift */; };
+		D1E2F3A4B5C60001000006 /* PlayingState.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000015 /* PlayingState.swift */; };
+		D1E2F3A4B5C60001000007 /* PausedState.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000016 /* PausedState.swift */; };
+		D1E2F3A4B5C60001000008 /* RespawnState.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000017 /* RespawnState.swift */; };
+		D1E2F3A4B5C60001000009 /* LevelCompleteState.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000018 /* LevelCompleteState.swift */; };
+		D1E2F3A4B5C60001000010 /* GameOverState.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000019 /* GameOverState.swift */; };
+		D1E2F3A4B5C60001000011 /* PlayerCube.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000020 /* PlayerCube.swift */; };
+		D1E2F3A4B5C60001000012 /* PlayerAnimations.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000021 /* PlayerAnimations.swift */; };
+		D1E2F3A4B5C60001000013 /* PlatformNode.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000022 /* PlatformNode.swift */; };
+		D1E2F3A4B5C60001000014 /* SpikeNode.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000023 /* SpikeNode.swift */; };
+		D1E2F3A4B5C60001000015 /* QuicksandNode.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000024 /* QuicksandNode.swift */; };
+		D1E2F3A4B5C60001000016 /* FlyingKnifeNode.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000025 /* FlyingKnifeNode.swift */; };
+		D1E2F3A4B5C60001000017 /* TreasureChestNode.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000026 /* TreasureChestNode.swift */; };
+		D1E2F3A4B5C60001000018 /* NodePool.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000027 /* NodePool.swift */; };
+		D1E2F3A4B5C60001000019 /* LevelGenerator.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000028 /* LevelGenerator.swift */; };
+		D1E2F3A4B5C60001000020 /* LevelData.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000029 /* LevelData.swift */; };
+		D1E2F3A4B5C60001000021 /* ScrollController.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000030 /* ScrollController.swift */; };
+		D1E2F3A4B5C60001000022 /* CollisionCategories.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000031 /* CollisionCategories.swift */; };
+		D1E2F3A4B5C60001000023 /* HapticManager.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000032 /* HapticManager.swift */; };
+		D1E2F3A4B5C60001000024 /* QuicksandTimerSystem.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000033 /* QuicksandTimerSystem.swift */; };
+		D1E2F3A4B5C60001000025 /* SpriteFactory.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000034 /* SpriteFactory.swift */; };
+		D1E2F3A4B5C60001000026 /* CubeDrawing.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000035 /* CubeDrawing.swift */; };
+		D1E2F3A4B5C60001000027 /* EnvironmentDrawing.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000037 /* EnvironmentDrawing.swift */; };
+		D1E2F3A4B5C60001000028 /* ObstacleDrawing.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000038 /* ObstacleDrawing.swift */; };
+		D1E2F3A4B5C60001000029 /* GameProgressStore.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000039 /* GameProgressStore.swift */; };
+		D1E2F3A4B5C60001000030 /* GhostRunRecorder.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000040 /* GhostRunRecorder.swift */; };
+		D1E2F3A4B5C60001000031 /* GhostRunPlayer.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000041 /* GhostRunPlayer.swift */; };
+		D1E2F3A4B5C60001000032 /* DailyChallengeManager.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000042 /* DailyChallengeManager.swift */; };
+		D1E2F3A4B5C60001000033 /* GameCenterManager.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000043 /* GameCenterManager.swift */; };
+		D1E2F3A4B5C60001000034 /* BragMessageGenerator.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000044 /* BragMessageGenerator.swift */; };
+		D1E2F3A4B5C60001000035 /* Constants.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000045 /* Constants.swift */; };
+		D1E2F3A4B5C60001000036 /* Extensions.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000046 /* Extensions.swift */; };
+		D1E2F3A4B5C60001000037 /* AppUpdateChecker.swift in Sources (iOS) */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60002000080 /* AppUpdateChecker.swift */; };
+		D1E2F3A4B5C60001000039 /* iOSGameContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E2F3A4B5C60002000001 /* iOSGameContainerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,10 +182,27 @@
 		A1B2C3D4E5F60002000060 /* AnimalCubeDash Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AnimalCubeDash Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B2C3D4E5F60002000070 /* SkinPreviewScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinPreviewScene.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F60002000080 /* AppUpdateChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateChecker.swift; sourceTree = "<group>"; };
+		C1D2E3F4A5B60002000001 /* AnimalCubeDashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCubeDashApp.swift; sourceTree = "<group>"; };
+		C1D2E3F4A5B60002000002 /* AnimalSkinModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalSkinModels.swift; sourceTree = "<group>"; };
+		C1D2E3F4A5B60002000003 /* iOSProgressStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSProgressStore.swift; sourceTree = "<group>"; };
+		C1D2E3F4A5B60002000004 /* PhoneConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneConnectivityManager.swift; sourceTree = "<group>"; };
+		C1D2E3F4A5B60002000005 /* iOSHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSHomeView.swift; sourceTree = "<group>"; };
+		C1D2E3F4A5B60002000006 /* iOSSkinsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSSkinsView.swift; sourceTree = "<group>"; };
+		C1D2E3F4A5B60002000007 /* iOSLeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSLeaderboardView.swift; sourceTree = "<group>"; };
+		C1D2E3F4A5B60002000008 /* iOSFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSFriendsView.swift; sourceTree = "<group>"; };
+		C1D2E3F4A5B60002000011 /* iOSSkinUnlockViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSSkinUnlockViews.swift; sourceTree = "<group>"; };
+		C1D2E3F4A5B60002000020 /* AdConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdConfig.swift; sourceTree = "<group>"; };
+		C1D2E3F4A5B60002000021 /* AdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdManager.swift; sourceTree = "<group>"; };
+		C1D2E3F4A5B60002000022 /* AdAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdAnalytics.swift; sourceTree = "<group>"; };
+		C1D2E3F4A5B60002000023 /* BannerAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdView.swift; sourceTree = "<group>"; };
+		C1D2E3F4A5B60002000009 /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
+		C1D2E3F4A5B60002000010 /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
 		B1C2D3E4F5A60002000060 /* AnimalCubeDash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalCubeDash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1C2D3E4F5A60002000061 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		B1C2D3E4F5A60002000062 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1C2D3E4F5A60002000063 /* AnimalCubeDash.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AnimalCubeDash.entitlements; sourceTree = "<group>"; };
+		C1D2E3F4A5B60002000024 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1E2F3A4B5C60002000001 /* iOSGameContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSGameContainerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -153,6 +227,7 @@
 				A1B2C3D4E5F60001000050 /* SpriteKit.framework in Frameworks */,
 				A1B2C3D4E5F60001000052 /* GameKit.framework in Frameworks */,
 				A1B2C3D4E5F60001000053 /* WatchKit.framework in Frameworks */,
+				C1D2E3F4A5B60001000010 /* WatchConnectivity.framework in Frameworks (Watch) */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +235,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1D2E3F4A5B60001000009 /* WatchConnectivity.framework in Frameworks (iOS) */,
+				C1D2E3F4A5B60001000012 /* GameKit.framework in Frameworks (iOS) */,
+				D1E2F3A4B5C60001000038 /* SpriteKit.framework in Frameworks (iOS) */,
+				E1F2A3B4C5D60001000003 /* GoogleMobileAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,11 +258,33 @@
 		B1C2D3E4F5A60004000014 /* AnimalCubeDash */ = {
 			isa = PBXGroup;
 			children = (
-				B1C2D3E4F5A60002000061 /* main.swift */,
+				C1D2E3F4A5B60002000001 /* AnimalCubeDashApp.swift */,
+				C1D2E3F4A5B60002000002 /* AnimalSkinModels.swift */,
+				C1D2E3F4A5B60002000003 /* iOSProgressStore.swift */,
+				C1D2E3F4A5B60002000004 /* PhoneConnectivityManager.swift */,
+				C1D2E3F4A5B60002000005 /* iOSHomeView.swift */,
+				C1D2E3F4A5B60002000006 /* iOSSkinsView.swift */,
+				C1D2E3F4A5B60002000007 /* iOSLeaderboardView.swift */,
+				C1D2E3F4A5B60002000008 /* iOSFriendsView.swift */,
+				C1D2E3F4A5B60002000011 /* iOSSkinUnlockViews.swift */,
+				D1E2F3A4B5C60002000001 /* iOSGameContainerView.swift */,
+				C1D2E3F4A5B60005000001 /* Ads */,
 				B1C2D3E4F5A60002000062 /* Assets.xcassets */,
 				B1C2D3E4F5A60002000063 /* AnimalCubeDash.entitlements */,
+				C1D2E3F4A5B60002000024 /* Info.plist */,
 			);
 			path = AnimalCubeDash;
+			sourceTree = "<group>";
+		};
+		C1D2E3F4A5B60005000001 /* Ads */ = {
+			isa = PBXGroup;
+			children = (
+				C1D2E3F4A5B60002000020 /* AdConfig.swift */,
+				C1D2E3F4A5B60002000021 /* AdManager.swift */,
+				C1D2E3F4A5B60002000022 /* AdAnalytics.swift */,
+				C1D2E3F4A5B60002000023 /* BannerAdView.swift */,
+			);
+			path = Ads;
 			sourceTree = "<group>";
 		};
 		A1B2C3D4E5F60004000002 /* AnimalCubeDash Watch App */ = {
@@ -202,8 +303,17 @@
 				A1B2C3D4E5F60004000009 /* Persistence */,
 				A1B2C3D4E5F60004000010 /* Social */,
 				A1B2C3D4E5F60004000011 /* Utilities */,
+				C1D2E3F4A5B60004000001 /* Connectivity */,
 			);
 			path = "AnimalCubeDash Watch App";
+			sourceTree = "<group>";
+		};
+		C1D2E3F4A5B60004000001 /* Connectivity */ = {
+			isa = PBXGroup;
+			children = (
+				C1D2E3F4A5B60002000010 /* WatchConnectivityManager.swift */,
+			);
+			path = Connectivity;
 			sourceTree = "<group>";
 		};
 		A1B2C3D4E5F60004000003 /* Views */ = {
@@ -324,6 +434,7 @@
 				A1B2C3D4E5F60002000050 /* SpriteKit.framework */,
 				A1B2C3D4E5F60002000052 /* GameKit.framework */,
 				A1B2C3D4E5F60002000053 /* WatchKit.framework */,
+				C1D2E3F4A5B60002000009 /* WatchConnectivity.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -355,6 +466,9 @@
 				B1C2D3E4F5A60005000003 /* PBXTargetDependency */,
 			);
 			name = AnimalCubeDash;
+			packageProductDependencies = (
+				E1F2A3B4C5D60001000002 /* GoogleMobileAds */,
+			);
 			productName = AnimalCubeDash;
 			productReference = B1C2D3E4F5A60002000060 /* AnimalCubeDash.app */;
 			productType = "com.apple.product-type.application";
@@ -421,6 +535,9 @@
 				Base,
 			);
 			mainGroup = A1B2C3D4E5F60004000001;
+			packageReferences = (
+				E1F2A3B4C5D60001000001 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
 			productRefGroup = A1B2C3D4E5F60004000013 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -506,6 +623,7 @@
 				A1B2C3D4E5F60001000048 /* ShareBragView.swift in Sources */,
 				A1B2C3D4E5F60001000049 /* GiftBoxView.swift in Sources */,
 				A1B2C3D4E5F60001000051 /* CommonSkinUnlockView.swift in Sources */,
+				C1D2E3F4A5B60001000011 /* WatchConnectivityManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,7 +631,57 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1C2D3E4F5A60001000061 /* main.swift in Sources */,
+				C1D2E3F4A5B60001000001 /* AnimalCubeDashApp.swift in Sources */,
+				C1D2E3F4A5B60001000002 /* AnimalSkinModels.swift in Sources */,
+				C1D2E3F4A5B60001000003 /* iOSProgressStore.swift in Sources */,
+				C1D2E3F4A5B60001000004 /* PhoneConnectivityManager.swift in Sources */,
+				C1D2E3F4A5B60001000005 /* iOSHomeView.swift in Sources */,
+				C1D2E3F4A5B60001000006 /* iOSSkinsView.swift in Sources */,
+				C1D2E3F4A5B60001000007 /* iOSLeaderboardView.swift in Sources */,
+				C1D2E3F4A5B60001000008 /* iOSFriendsView.swift in Sources */,
+				C1D2E3F4A5B60001000013 /* iOSSkinUnlockViews.swift in Sources */,
+				D1E2F3A4B5C60001000039 /* iOSGameContainerView.swift in Sources */,
+				C1D2E3F4A5B60001000020 /* AdConfig.swift in Sources */,
+				C1D2E3F4A5B60001000021 /* AdManager.swift in Sources */,
+				C1D2E3F4A5B60001000022 /* AdAnalytics.swift in Sources */,
+				C1D2E3F4A5B60001000023 /* BannerAdView.swift in Sources */,
+				D1E2F3A4B5C60001000035 /* Constants.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000036 /* Extensions.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000037 /* AppUpdateChecker.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000001 /* GameScene.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000002 /* GameScene+Physics.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000003 /* GameScene+Input.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000004 /* GameCamera.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000005 /* GameStateMachine.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000006 /* PlayingState.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000007 /* PausedState.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000008 /* RespawnState.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000009 /* LevelCompleteState.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000010 /* GameOverState.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000011 /* PlayerCube.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000012 /* PlayerAnimations.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000013 /* PlatformNode.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000014 /* SpikeNode.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000015 /* QuicksandNode.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000016 /* FlyingKnifeNode.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000017 /* TreasureChestNode.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000018 /* NodePool.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000019 /* LevelGenerator.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000020 /* LevelData.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000021 /* ScrollController.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000022 /* CollisionCategories.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000023 /* HapticManager.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000024 /* QuicksandTimerSystem.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000025 /* SpriteFactory.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000026 /* CubeDrawing.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000027 /* EnvironmentDrawing.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000028 /* ObstacleDrawing.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000029 /* GameProgressStore.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000030 /* GhostRunRecorder.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000031 /* GhostRunPlayer.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000032 /* DailyChallengeManager.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000033 /* GameCenterManager.swift in Sources (iOS) */,
+				D1E2F3A4B5C60001000034 /* BragMessageGenerator.swift in Sources (iOS) */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,9 +816,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "AnimalCubeDash Watch App/AnimalCubeDash Watch App.entitlements";
-				CODE_SIGN_STYLE = Manual;
-				CODE_SIGN_IDENTITY = "Apple Distribution";
-				PROVISIONING_PROFILE_SPECIFIER = "AnimalCubeDash Watch AppStore Distribution";
+				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F5D5362ZUD;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -708,17 +876,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AnimalCubeDash/AnimalCubeDash.entitlements;
-				CODE_SIGN_STYLE = Manual;
-				CODE_SIGN_IDENTITY = "Apple Distribution";
-				PROVISIONING_PROFILE_SPECIFIER = "AnimalCubeDash AppStore Distribution";
+				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F5D5362ZUD;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Animal Cube Dash";
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIRequiresFullScreen = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = AnimalCubeDash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.animalcubedash;
@@ -741,12 +905,8 @@
 				PROVISIONING_PROFILE_SPECIFIER = "AnimalCubeDash AppStore Distribution";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F5D5362ZUD;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Animal Cube Dash";
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIRequiresFullScreen = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = AnimalCubeDash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.animalcubedash;
@@ -791,6 +951,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E1F2A3B4C5D60001000001 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E1F2A3B4C5D60001000002 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1F2A3B4C5D60001000001 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A1B2C3D4E5F60009000001 /* Project object */;
 }

@@ -14,8 +14,12 @@ class GameScene: SKScene {
     private var currentSkin: AnimalSkin = .cat
     private(set) var livesRemaining: Int = Constants.maxLives
     private var lastUpdateTime: TimeInterval = 0
+    var lastTapTime: TimeInterval = 0
     private var isGameActive = false
     var lastHitKnifeX: CGFloat?
+    var lastHitSpikeX: CGFloat?
+    /// Actual visible half-height from camera centre (updated in didMove on iOS)
+    private var visibleHalfHeight: CGFloat = Constants.sceneSize.height / 2
 
     // HUD nodes
     private var hudNode: SKNode!
@@ -46,6 +50,16 @@ class GameScene: SKScene {
         setupSystems()
     }
 
+    #if os(iOS)
+    override func didMove(to view: SKView) {
+        super.didMove(to: view)
+        let scale = max(view.bounds.width  / Constants.sceneSize.width,
+                        view.bounds.height / Constants.sceneSize.height)
+        visibleHalfHeight = view.bounds.height / scale / 2
+        repositionHUD()
+    }
+    #endif
+
     func configure(level: Int, skin: AnimalSkin) {
         currentLevel = level
         currentSkin = skin
@@ -54,6 +68,7 @@ class GameScene: SKScene {
     func startGame() {
         resetLevel()
         lastUpdateTime = 0
+        lastTapTime = 0
         stateMachine.enter(.playing)
         isGameActive = true
 
@@ -91,14 +106,17 @@ class GameScene: SKScene {
         hudNode.zPosition = 200
         gameCamera.addChild(hudNode)
 
-        // Hearts
+        #if !os(iOS)
+        // Hearts — on iOS these are rendered as a SwiftUI overlay instead
         updateHeartsDisplay()
+        #endif
 
         // Progress bar
         let barBg = SKShapeNode(rectOf: CGSize(width: Constants.progressBarWidth, height: Constants.progressBarHeight), cornerRadius: 1.5)
         barBg.fillColor = SKColor.white.withAlphaComponent(0.3)
         barBg.strokeColor = .clear
-        barBg.position = CGPoint(x: 0, y: Constants.sceneSize.height / 2 - Constants.hudTopMargin - 20)
+        barBg.name = "progressBarBg"
+        barBg.position = CGPoint(x: 0, y: visibleHalfHeight - Constants.hudTopMargin - 20)
         hudNode.addChild(barBg)
 
         progressFill = SKShapeNode(rectOf: CGSize(width: 1, height: Constants.progressBarHeight), cornerRadius: 1.5)
@@ -114,7 +132,7 @@ class GameScene: SKScene {
         heartNodes.removeAll()
 
         let startX = -Constants.sceneSize.width / 2 + 15
-        let y = Constants.sceneSize.height / 2 - Constants.hudTopMargin - 6
+        let y = visibleHalfHeight - Constants.hudTopMargin - 6
 
         for i in 0..<Constants.maxLives {
             let filled = i < livesRemaining
@@ -123,6 +141,18 @@ class GameScene: SKScene {
             hudNode.addChild(heart)
             heartNodes.append(heart)
         }
+    }
+
+    private func repositionHUD() {
+        let heartY = visibleHalfHeight - Constants.hudTopMargin - 6
+        let barY   = visibleHalfHeight - Constants.hudTopMargin - 20
+        let startX = -Constants.sceneSize.width / 2 + 15
+
+        for (i, heart) in heartNodes.enumerated() {
+            heart.position = CGPoint(x: startX + CGFloat(i) * (Constants.heartSize + Constants.heartSpacing), y: heartY)
+        }
+        hudNode.childNode(withName: "progressBarBg")?.position = CGPoint(x: 0, y: barY)
+        progressFill.position = CGPoint(x: 0, y: barY)
     }
 
     private func setupSystems() {
@@ -145,6 +175,8 @@ class GameScene: SKScene {
         // Reset systems
         scrollController.reset()
         quicksandTimer.reset()
+        lastHitKnifeX = nil
+        lastHitSpikeX = nil
         levelGenerator = LevelGenerator(nodePool: nodePool, level: currentLevel)
 
         // Reset player
@@ -306,9 +338,11 @@ class GameScene: SKScene {
 
         let targetPlatform: PlatformNode?
         if let knifeX = lastHitKnifeX {
-            // Find the first platform strictly ahead of the knife
             targetPlatform = findFirstPlatformAfter(x: knifeX)
             lastHitKnifeX = nil
+        } else if let spikeX = lastHitSpikeX {
+            targetPlatform = findFirstPlatformAfter(x: spikeX)
+            lastHitSpikeX = nil
         } else {
             targetPlatform = findNearestPlatform(to: currentScrollX + Constants.playerStartX)
         }
@@ -429,6 +463,23 @@ class GameScene: SKScene {
         currentLevel += 1
         startGame()
     }
+
+    // MARK: - Rewarded Ad Support (iOS only)
+
+    #if os(iOS)
+    /// 0.0–1.0 fraction of the level the player has completed.
+    /// Used to gate rewarded-ad eligibility (only show if ≥ 40%).
+    var playerProgress: Float {
+        Float(max(0, player.position.x) / Constants.levelLength)
+    }
+
+    /// Grant +1 life and resume from the current respawn point (rewarded-ad reward).
+    func continueWithExtraLife() {
+        livesRemaining = 1
+        onLivesChange?(livesRemaining)
+        stateMachine.enter(.respawn)
+    }
+    #endif
 }
 
 // MARK: - GameStateDelegate

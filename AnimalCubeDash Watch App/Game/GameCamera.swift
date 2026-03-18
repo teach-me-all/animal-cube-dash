@@ -15,7 +15,12 @@ final class GameCamera: SKCameraNode {
     }
 
     func reset() {
+        #if os(iOS)
+        // Center viewport on gameplay area (ground y≈60, max jump y≈200, midpoint ≈ 120)
+        position = CGPoint(x: Constants.sceneSize.width / 2, y: 120)
+        #else
         position = CGPoint(x: Constants.sceneSize.width / 2, y: Constants.sceneSize.height / 2)
+        #endif
         targetX = position.x
     }
 }
