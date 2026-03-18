@@ -12,6 +12,10 @@ struct CubeDrawing {
         let parent = SKNode()
         parent.name = "cubeRoot"
 
+        // Store skin so setExpression can access it
+        parent.userData = NSMutableDictionary()
+        parent.userData?["skin"] = skin.rawValue
+
         // Body
         let body = SKShapeNode.roundedRect(
             size: Constants.playerSize,
@@ -24,16 +28,21 @@ struct CubeDrawing {
         // Ears (behind body)
         addEars(to: parent, skin: skin)
 
-        // Eyes (big kawaii eyes)
-        addKawaiiEyes(to: parent, skin: skin)
+        // Face: legendary Sanrio skins get character-specific faces
+        if skin.rarity == .legendary {
+            addSanrioFace(to: parent, skin: skin)
+        } else {
+            // Eyes (big kawaii eyes)
+            addKawaiiEyes(to: parent, skin: skin)
 
-        // Blush circles on cheeks
-        addBlush(to: parent)
+            // Blush circles on cheeks
+            addBlush(to: parent)
 
-        // Mouth (default normal - cute cat mouth)
-        let mouth = createMouthNode(expression: .normal, skin: skin)
-        mouth.name = "mouth"
-        parent.addChild(mouth)
+            // Mouth (default normal - cute cat mouth)
+            let mouth = createMouthNode(expression: .normal, skin: skin)
+            mouth.name = "mouth"
+            parent.addChild(mouth)
+        }
 
         // Small nose
         addNose(to: parent, skin: skin)
@@ -44,8 +53,13 @@ struct CubeDrawing {
     // MARK: - Expression
 
     static func setExpression(_ node: SKNode, expression: CubeExpression) {
+        // Hello Kitty, My Melody, and Pochacco have no mouth
+        if let skinRaw = node.userData?["skin"] as? String,
+           let skin = AnimalSkin(rawValue: skinRaw),
+           skin == .helloKitty || skin == .myMelody || skin == .pochacco {
+            return
+        }
         node.childNode(withName: "mouth")?.removeFromParent()
-        // Try to determine skin from body color, default to cat-style mouth
         let mouth = createMouthNode(expression: expression, skin: nil)
         mouth.name = "mouth"
         node.addChild(mouth)
@@ -302,22 +316,16 @@ struct CubeDrawing {
             parent.addChild(nose)
 
         case .myMelody:
-            // Small pink oval nose
-            let nose = SKShapeNode(ellipseOf: CGSize(width: 1.6, height: 1.2))
-            nose.fillColor = SKColor(hex: 0xFF69B4)
+            // Yellow oval nose (same as Hello Kitty)
+            let nose = SKShapeNode(ellipseOf: CGSize(width: 1.8, height: 1.2))
+            nose.fillColor = SKColor(hex: 0xFFD700)
             nose.strokeColor = .clear
             nose.lineWidth = 0
             nose.position = CGPoint(x: 0, y: noseY)
             parent.addChild(nose)
 
         case .cinnamoroll:
-            // Tiny round pink nose
-            let nose = SKShapeNode(circleOfRadius: 0.7)
-            nose.fillColor = SKColor(hex: 0xFFB6C1)
-            nose.strokeColor = .clear
-            nose.lineWidth = 0
-            nose.position = CGPoint(x: 0, y: noseY)
-            parent.addChild(nose)
+            break // Cinnamoroll has no nose
 
         case .kuromi:
             // Small skull-like nose dot
@@ -338,15 +346,7 @@ struct CubeDrawing {
             parent.addChild(nose)
 
         case .keroppi:
-            // Wide frog nostrils
-            for side: CGFloat in [-1, 1] {
-                let nostril = SKShapeNode(circleOfRadius: 0.6)
-                nostril.fillColor = SKColor(hex: 0x2E7D32)
-                nostril.strokeColor = .clear
-                nostril.lineWidth = 0
-                nostril.position = CGPoint(x: side * 1.5, y: noseY)
-                parent.addChild(nostril)
-            }
+            break // Keroppi has no visible nose
 
         case .pochacco:
             // Round dog nose
@@ -392,6 +392,24 @@ struct CubeDrawing {
             // Tiny blue nose
             let nose = SKShapeNode(circleOfRadius: 0.6)
             nose.fillColor = SKColor(hex: 0x42A5F5)
+            nose.strokeColor = .clear
+            nose.lineWidth = 0
+            nose.position = CGPoint(x: 0, y: noseY)
+            parent.addChild(nose)
+
+        case .brownBear:
+            // Round brown nose
+            let nose = SKShapeNode(circleOfRadius: 1.0)
+            nose.fillColor = SKColor(hex: 0x3E2010)
+            nose.strokeColor = .clear
+            nose.lineWidth = 0
+            nose.position = CGPoint(x: 0, y: noseY)
+            parent.addChild(nose)
+
+        case .polarBear:
+            // Round dark nose
+            let nose = SKShapeNode(circleOfRadius: 1.0)
+            nose.fillColor = SKColor(hex: 0x2D3436)
             nose.strokeColor = .clear
             nose.lineWidth = 0
             nose.position = CGPoint(x: 0, y: noseY)
@@ -735,6 +753,483 @@ struct CubeDrawing {
         stem.lineWidth = 0.5
         stem.position = CGPoint(x: 0, y: halfH + 4)
         parent.addChild(stem)
+    }
+
+    // MARK: - Sanrio Faces
+
+    private static func addSanrioFace(to parent: SKNode, skin: AnimalSkin) {
+        switch skin {
+        case .helloKitty:      addHelloKittyFace(to: parent)
+        case .myMelody:        addMyMelodyFace(to: parent)
+        case .cinnamoroll:     addCinnamorollFace(to: parent)
+        case .kuromi:          addKuromiFace(to: parent)
+        case .pompompurin:     addPompompurinFace(to: parent)
+        case .keroppi:         addKeroppiiFace(to: parent)
+        case .pochacco:        addPochaccoFace(to: parent)
+        case .badtzMaru:       addBadtzMaruFace(to: parent)
+        case .tuxedoSam:       addTuxedoSamFace(to: parent)
+        case .littleTwinStars: addTwinStarFace(to: parent, starColor: SKColor(hex: 0xF48FB1))
+        case .blueTwinStar:    addTwinStarFace(to: parent, starColor: SKColor(hex: 0x42A5F5))
+        default:
+            addKawaiiEyes(to: parent, skin: skin)
+            addBlush(to: parent)
+            let mouth = createMouthNode(expression: .normal, skin: skin)
+            mouth.name = "mouth"
+            parent.addChild(mouth)
+        }
+    }
+
+    /// Hello Kitty — small horizontal oval eyes, whiskers, no mouth
+    private static func addHelloKittyFace(to parent: SKNode) {
+        // Eyes: small horizontal ovals (wider than tall), set close together
+        for side: CGFloat in [-1, 1] {
+            let eye = SKShapeNode(ellipseOf: CGSize(width: 3.2, height: 2.0))
+            eye.fillColor = SKColor(hex: 0x2D3436)
+            eye.strokeColor = .clear
+            eye.lineWidth = 0
+            eye.position = CGPoint(x: side * 3.0, y: 1.8)
+            parent.addChild(eye)
+        }
+        // 3 whiskers per side (6 total) — Hello Kitty's most iconic feature
+        for side: CGFloat in [-1, 1] {
+            for (i, yOffset) in ([0.8, -0.5, -1.8] as [CGFloat]).enumerated() {
+                let whiskerPath = CGMutablePath()
+                let startX = side * 4.0
+                let endX = side * 8.0
+                whiskerPath.move(to: CGPoint(x: startX, y: yOffset))
+                whiskerPath.addLine(to: CGPoint(x: endX, y: yOffset + CGFloat(i) * 0.1))
+                let whisker = SKShapeNode(path: whiskerPath)
+                whisker.strokeColor = SKColor(hex: 0x636E72)
+                whisker.lineWidth = 0.4
+                whisker.lineCap = .round
+                parent.addChild(whisker)
+            }
+        }
+        addBlush(to: parent)
+        // No mouth — intentional (Hello Kitty has no mouth)
+    }
+
+    /// My Melody — tiny solid dot eyes (no whites), no mouth (yellow nose from addNose)
+    private static func addMyMelodyFace(to parent: SKNode) {
+        // Very small dot eyes, set wide apart — My Melody's simple dot-eye style
+        for side: CGFloat in [-1, 1] {
+            let eye = SKShapeNode(ellipseOf: CGSize(width: 2.8, height: 2.8))
+            eye.fillColor = SKColor(hex: 0x2D3436)
+            eye.strokeColor = .clear
+            eye.lineWidth = 0
+            eye.position = CGPoint(x: side * 3.5, y: 1.5)
+            parent.addChild(eye)
+        }
+        addBlush(to: parent)
+        // No mouth — My Melody has an absent/minimal mouth like Hello Kitty
+    }
+
+    /// Cinnamoroll — huge sky-blue eyes, no nose, W-shaped cat mouth, cinnamon swirl on head
+    private static func addCinnamorollFace(to parent: SKNode) {
+        for side: CGFloat in [-1, 1] {
+            let white = SKShapeNode(circleOfRadius: 3.6)
+            white.fillColor = .white
+            white.strokeColor = SKColor(white: 0.85, alpha: 1)
+            white.lineWidth = 0.5
+            white.position = CGPoint(x: side * 3.3, y: 1.8)
+            parent.addChild(white)
+
+            // Sky-blue iris (Cinnamoroll's characteristic light-blue eyes)
+            let iris = SKShapeNode(circleOfRadius: 2.5)
+            iris.fillColor = SKColor(hex: 0x64B5F6) // sky blue
+            iris.strokeColor = .clear
+            iris.lineWidth = 0
+            iris.position = CGPoint(x: 0, y: -0.3)
+            white.addChild(iris)
+
+            let pupil = SKShapeNode(circleOfRadius: 1.3)
+            pupil.fillColor = SKColor(hex: 0x1565C0) // deeper blue pupil
+            pupil.strokeColor = .clear
+            pupil.lineWidth = 0
+            pupil.position = .zero
+            iris.addChild(pupil)
+
+            let sparkle = SKShapeNode(circleOfRadius: 0.55)
+            sparkle.fillColor = .white
+            sparkle.strokeColor = .clear
+            sparkle.position = CGPoint(x: 0.5, y: 0.5)
+            pupil.addChild(sparkle)
+        }
+        // Chubby pink cheeks
+        for side: CGFloat in [-1, 1] {
+            let blush = SKShapeNode(ellipseOf: CGSize(width: 3.5, height: 2.2))
+            blush.fillColor = SKColor(red: 1.0, green: 0.65, blue: 0.75, alpha: 0.5)
+            blush.strokeColor = .clear
+            blush.lineWidth = 0
+            blush.position = CGPoint(x: side * 5.5, y: -1.5)
+            parent.addChild(blush)
+        }
+        // W-shaped cat mouth (subtle)
+        let mouthPath = CGMutablePath()
+        mouthPath.move(to: CGPoint(x: -1.8, y: -4.2))
+        mouthPath.addQuadCurve(to: CGPoint(x: 0, y: -4.2), control: CGPoint(x: -0.9, y: -5.3))
+        mouthPath.addQuadCurve(to: CGPoint(x: 1.8, y: -4.2), control: CGPoint(x: 0.9, y: -5.3))
+        let mouth = SKShapeNode(path: mouthPath)
+        mouth.strokeColor = SKColor(hex: 0x2D3436)
+        mouth.fillColor = .clear
+        mouth.lineWidth = 0.8
+        mouth.name = "mouth"
+        parent.addChild(mouth)
+        // Pink cinnamon swirl on top of head (signature mark)
+        let curlPath = CGMutablePath()
+        curlPath.addArc(center: CGPoint(x: 0.5, y: 7.8),
+                        radius: 1.8,
+                        startAngle: .pi * 1.15, endAngle: .pi * 0.1,
+                        clockwise: true)
+        let curl = SKShapeNode(path: curlPath)
+        curl.strokeColor = SKColor(hex: 0xFFB6C1)
+        curl.fillColor = .clear
+        curl.lineWidth = 1.6
+        curl.lineCap = .round
+        parent.addChild(curl)
+    }
+
+    /// Kuromi — white face oval on dark body, purple eyes, angled brows, smirk with fang
+    private static func addKuromiFace(to parent: SKNode) {
+        // White face oval patch (Kuromi's most distinctive feature — pale face on dark body)
+        let faceOval = SKShapeNode(ellipseOf: CGSize(width: 13.0, height: 12.0))
+        faceOval.fillColor = .white
+        faceOval.strokeColor = SKColor(white: 0.85, alpha: 1)
+        faceOval.lineWidth = 0.4
+        faceOval.position = CGPoint(x: 0, y: -0.5)
+        parent.addChild(faceOval)
+
+        for side: CGFloat in [-1, 1] {
+            let white = SKShapeNode(circleOfRadius: 3.0)
+            white.fillColor = .white
+            white.strokeColor = SKColor(white: 0.8, alpha: 1)
+            white.lineWidth = 0.4
+            white.position = CGPoint(x: side * 3.8, y: 1.5)
+            parent.addChild(white)
+
+            let pupil = SKShapeNode(circleOfRadius: 2.0)
+            pupil.fillColor = SKColor(hex: 0x7B1FA2) // deep purple
+            pupil.strokeColor = .clear
+            pupil.lineWidth = 0
+            pupil.position = CGPoint(x: side * 0.3, y: -0.2)
+            white.addChild(pupil)
+
+            let sparkle = SKShapeNode(circleOfRadius: 0.65)
+            sparkle.fillColor = .white
+            sparkle.strokeColor = .clear
+            sparkle.position = CGPoint(x: 0.4, y: 0.5)
+            pupil.addChild(sparkle)
+
+            // Angled brow: inner end lower, outer end higher — Kuromi's furrowed look
+            let bx = side * 3.8
+            let browPath = CGMutablePath()
+            browPath.move(to: CGPoint(x: bx - side * 2.8, y: 4.2))
+            browPath.addLine(to: CGPoint(x: bx + side * 2.2, y: 5.5))
+            let brow = SKShapeNode(path: browPath)
+            brow.strokeColor = SKColor(hex: 0x1A1A1A)
+            brow.lineWidth = 1.4
+            brow.lineCap = .round
+            parent.addChild(brow)
+        }
+        // Smirk mouth
+        let mouthPath = CGMutablePath()
+        mouthPath.move(to: CGPoint(x: -2.2, y: -4.0))
+        mouthPath.addQuadCurve(to: CGPoint(x: 2.0, y: -3.4), control: CGPoint(x: 0.5, y: -5.6))
+        let mouth = SKShapeNode(path: mouthPath)
+        mouth.strokeColor = SKColor(hex: 0x2D3436)
+        mouth.fillColor = .clear
+        mouth.lineWidth = 0.9
+        mouth.name = "mouth"
+        parent.addChild(mouth)
+        // Small white fang (Kuromi's signature pointy tooth)
+        let fangPath = CGMutablePath()
+        fangPath.move(to: CGPoint(x: -0.6, y: -4.2))
+        fangPath.addLine(to: CGPoint(x: -1.8, y: -5.6))
+        fangPath.addLine(to: CGPoint(x: 0.3, y: -4.8))
+        fangPath.closeSubpath()
+        let fang = SKShapeNode(path: fangPath)
+        fang.fillColor = .white
+        fang.strokeColor = SKColor(white: 0.7, alpha: 1)
+        fang.lineWidth = 0.3
+        parent.addChild(fang)
+    }
+
+    /// Pompompurin — small downward-arc closed eyes (sleepy/relaxed), content smile
+    private static func addPompompurinFace(to parent: SKNode) {
+        // Pompompurin's eyes are NOT open ovals — they're tiny downward arc lines (closed/sleepy)
+        for side: CGFloat in [-1, 1] {
+            let ex = side * 3.2
+            // Downward arc: endpoints higher than midpoint — a gentle closed-eye look
+            let eyePath = CGMutablePath()
+            eyePath.move(to: CGPoint(x: ex - 2.2, y: 2.2))
+            eyePath.addQuadCurve(to: CGPoint(x: ex + 2.2, y: 2.2),
+                                 control: CGPoint(x: ex, y: 0.5))
+            let eye = SKShapeNode(path: eyePath)
+            eye.strokeColor = SKColor(hex: 0x5D4037) // warm brown
+            eye.fillColor = .clear
+            eye.lineWidth = 1.5
+            eye.lineCap = .round
+            parent.addChild(eye)
+        }
+        addBlush(to: parent)
+        let mouthPath = CGMutablePath()
+        mouthPath.move(to: CGPoint(x: -2.5, y: -3.8))
+        mouthPath.addQuadCurve(to: CGPoint(x: 2.5, y: -3.8), control: CGPoint(x: 0, y: -5.4))
+        let mouth = SKShapeNode(path: mouthPath)
+        mouth.strokeColor = SKColor(hex: 0x2D3436)
+        mouth.fillColor = .clear
+        mouth.lineWidth = 0.8
+        mouth.name = "mouth"
+        parent.addChild(mouth)
+    }
+
+    /// Keroppi — huge round eyes (pupils at top, white crescent at bottom), V-shaped mouth
+    private static func addKeroppiiFace(to parent: SKNode) {
+        for side: CGFloat in [-1, 1] {
+            let white = SKShapeNode(circleOfRadius: 4.0)
+            white.fillColor = .white
+            white.strokeColor = SKColor(white: 0.85, alpha: 1)
+            white.lineWidth = 0.6
+            white.position = CGPoint(x: side * 3.0, y: 2.5)
+            parent.addChild(white)
+
+            let pupil = SKShapeNode(circleOfRadius: 2.5)
+            pupil.fillColor = SKColor(hex: 0x2D3436)
+            pupil.strokeColor = .clear
+            pupil.lineWidth = 0
+            // Pupils sit HIGH — leaving white crescent visible at bottom (Keroppi's look)
+            pupil.position = CGPoint(x: side * 0.3, y: 0.9)
+            white.addChild(pupil)
+
+            let sparkle = SKShapeNode(circleOfRadius: 0.9)
+            sparkle.fillColor = .white
+            sparkle.strokeColor = .clear
+            sparkle.position = CGPoint(x: 0.6, y: 0.7)
+            pupil.addChild(sparkle)
+        }
+        // Keroppi's V-shaped mouth: two diagonal lines meeting at a bottom-center point
+        let mouthPath = CGMutablePath()
+        mouthPath.move(to: CGPoint(x: -3.5, y: -2.8))
+        mouthPath.addLine(to: CGPoint(x: 0, y: -5.2))
+        mouthPath.addLine(to: CGPoint(x: 3.5, y: -2.8))
+        let mouth = SKShapeNode(path: mouthPath)
+        mouth.strokeColor = SKColor(hex: 0x2D3436)
+        mouth.fillColor = .clear
+        mouth.lineWidth = 1.0
+        mouth.lineCap = .round
+        mouth.lineJoin = .round
+        mouth.name = "mouth"
+        parent.addChild(mouth)
+    }
+
+    /// Pochacco — small dot eyes, ink spot on forehead, NO mouth (like Hello Kitty)
+    private static func addPochaccoFace(to parent: SKNode) {
+        for side: CGFloat in [-1, 1] {
+            let eye = SKShapeNode(circleOfRadius: 1.8)
+            eye.fillColor = SKColor(hex: 0x2D3436)
+            eye.strokeColor = .clear
+            eye.lineWidth = 0
+            eye.position = CGPoint(x: side * 3.2, y: 1.5)
+            parent.addChild(eye)
+
+            let sparkle = SKShapeNode(circleOfRadius: 0.55)
+            sparkle.fillColor = .white
+            sparkle.strokeColor = .clear
+            sparkle.position = CGPoint(x: side * 0.5, y: 0.6)
+            eye.addChild(sparkle)
+        }
+        addBlush(to: parent)
+        // Pochacco's signature ink spot on top of head
+        let spot = SKShapeNode(circleOfRadius: 2.0)
+        spot.fillColor = SKColor(hex: 0x2D3436)
+        spot.strokeColor = .clear
+        spot.lineWidth = 0
+        spot.position = CGPoint(x: 0.5, y: 5.5)
+        parent.addChild(spot)
+        // No mouth — Pochacco has no mouth like Hello Kitty
+    }
+
+    /// Badtz-Maru — white belly oval, 4 spiky hair, half-lidded pupils at top, grumpy frown
+    private static func addBadtzMaruFace(to parent: SKNode) {
+        // White belly/chest oval (his distinctive white belly patch)
+        let belly = SKShapeNode(ellipseOf: CGSize(width: 10.0, height: 9.0))
+        belly.fillColor = .white
+        belly.strokeColor = SKColor(white: 0.85, alpha: 1)
+        belly.lineWidth = 0.4
+        belly.position = CGPoint(x: 0, y: -1.5)
+        parent.addChild(belly)
+
+        for side: CGFloat in [-1, 1] {
+            let white = SKShapeNode(ellipseOf: CGSize(width: 5.5, height: 5.5))
+            white.fillColor = .white
+            white.strokeColor = SKColor(white: 0.6, alpha: 1)
+            white.lineWidth = 0.5
+            white.position = CGPoint(x: side * 3.5, y: 1.5)
+            parent.addChild(white)
+
+            let pupil = SKShapeNode(circleOfRadius: 2.2)
+            pupil.fillColor = SKColor(hex: 0x2D3436)
+            pupil.strokeColor = .clear
+            pupil.lineWidth = 0
+            // Pupils at TOP of whites — half-lidded mean expression
+            pupil.position = CGPoint(x: side * 0.3, y: 1.0)
+            white.addChild(pupil)
+
+            let sparkle = SKShapeNode(circleOfRadius: 0.65)
+            sparkle.fillColor = .white
+            sparkle.strokeColor = .clear
+            sparkle.position = CGPoint(x: 0.4, y: 0.5)
+            pupil.addChild(sparkle)
+
+            // Heavy angry brow: inner corner high, outer corner low
+            let bx = side * 3.5
+            let browPath = CGMutablePath()
+            browPath.move(to: CGPoint(x: bx - side * 2.5, y: 6.5))
+            browPath.addLine(to: CGPoint(x: bx + side * 3.0, y: 4.8))
+            let brow = SKShapeNode(path: browPath)
+            brow.strokeColor = SKColor(hex: 0x1A1A1A)
+            brow.lineWidth = 1.8
+            brow.lineCap = .round
+            parent.addChild(brow)
+        }
+        // 4 spiky black hair on top of head
+        for (hx, htop): (CGFloat, CGFloat) in [(-5.0, 8.5), (-1.8, 10.5), (1.5, 9.5), (4.5, 8.0)] {
+            let hairPath = CGMutablePath()
+            hairPath.move(to: CGPoint(x: hx - 1.5, y: htop - 3.5))
+            hairPath.addLine(to: CGPoint(x: hx, y: htop))
+            hairPath.addLine(to: CGPoint(x: hx + 1.5, y: htop - 3.5))
+            hairPath.closeSubpath()
+            let hair = SKShapeNode(path: hairPath)
+            hair.fillColor = SKColor(hex: 0x1A1A1A)
+            hair.strokeColor = .clear
+            hair.lineWidth = 0
+            parent.addChild(hair)
+        }
+        // Grumpy frown (upward-arcing curve = downward mouth expression)
+        let mouthPath = CGMutablePath()
+        mouthPath.move(to: CGPoint(x: -2.5, y: -4.5))
+        mouthPath.addQuadCurve(to: CGPoint(x: 2.5, y: -4.5), control: CGPoint(x: 0, y: -2.8))
+        let mouth = SKShapeNode(path: mouthPath)
+        mouth.strokeColor = SKColor(hex: 0x2D3436)
+        mouth.fillColor = .clear
+        mouth.lineWidth = 1.0
+        mouth.name = "mouth"
+        parent.addChild(mouth)
+    }
+
+    /// Tuxedo Sam — white belly patch, round eyes, RED bow tie on chest, happy smile
+    private static func addTuxedoSamFace(to parent: SKNode) {
+        // White belly/chest oval (Tuxedo Sam's penguin belly)
+        let belly = SKShapeNode(ellipseOf: CGSize(width: 10.0, height: 9.0))
+        belly.fillColor = .white
+        belly.strokeColor = SKColor(white: 0.85, alpha: 1)
+        belly.lineWidth = 0.4
+        belly.position = CGPoint(x: 0, y: -1.5)
+        parent.addChild(belly)
+
+        for side: CGFloat in [-1, 1] {
+            let white = SKShapeNode(circleOfRadius: 3.2)
+            white.fillColor = .white
+            white.strokeColor = SKColor(white: 0.8, alpha: 1)
+            white.lineWidth = 0.4
+            white.position = CGPoint(x: side * 3.5, y: 2.0)
+            parent.addChild(white)
+
+            let pupil = SKShapeNode(circleOfRadius: 2.0)
+            pupil.fillColor = SKColor(hex: 0x2D3436)
+            pupil.strokeColor = .clear
+            pupil.lineWidth = 0
+            pupil.position = CGPoint(x: side * 0.3, y: -0.2)
+            white.addChild(pupil)
+
+            let sparkle = SKShapeNode(circleOfRadius: 0.7)
+            sparkle.fillColor = .white
+            sparkle.strokeColor = .clear
+            sparkle.position = CGPoint(x: 0.5, y: 0.6)
+            pupil.addChild(sparkle)
+        }
+        addBlush(to: parent)
+        // RED bow tie on chest (Tuxedo Sam's most distinctive feature — it is RED, not blue)
+        for side: CGFloat in [-1, 1] {
+            let loop = SKShapeNode(ellipseOf: CGSize(width: 3.5, height: 2.5))
+            loop.fillColor = SKColor(hex: 0xE53935)
+            loop.strokeColor = SKColor(hex: 0xC62828)
+            loop.lineWidth = 0.4
+            loop.position = CGPoint(x: side * 2.2, y: -5.0)
+            parent.addChild(loop)
+        }
+        let knot = SKShapeNode(circleOfRadius: 1.2)
+        knot.fillColor = SKColor(hex: 0xE53935)
+        knot.strokeColor = .clear
+        knot.lineWidth = 0
+        knot.position = CGPoint(x: 0, y: -5.0)
+        parent.addChild(knot)
+
+        let mouthPath = CGMutablePath()
+        mouthPath.move(to: CGPoint(x: -2.5, y: -3.2))
+        mouthPath.addQuadCurve(to: CGPoint(x: 2.5, y: -3.2), control: CGPoint(x: 0, y: -5.0))
+        let mouth = SKShapeNode(path: mouthPath)
+        mouth.strokeColor = SKColor(hex: 0x2D3436)
+        mouth.fillColor = .clear
+        mouth.lineWidth = 0.8
+        mouth.name = "mouth"
+        parent.addChild(mouth)
+    }
+
+    /// LittleTwinStars (Lala=pink hair) / BlueTwinStar (Kiki=blue hair) — star eyes, bright smile
+    private static func addTwinStarFace(to parent: SKNode, starColor: SKColor) {
+        // Hair on top of cube (Lala = long pink, Kiki = blue bowl cut — represented as hair blobs)
+        let hairOffsets: [(CGFloat, CGFloat)] = [(-5.5, 7.5), (-2.5, 9.0), (0.5, 9.5), (3.5, 8.5)]
+        for (hx, hy) in hairOffsets {
+            let strand = SKShapeNode(ellipseOf: CGSize(width: 4.5, height: 4.0))
+            strand.fillColor = starColor
+            strand.strokeColor = .clear
+            strand.lineWidth = 0
+            strand.position = CGPoint(x: hx, y: hy)
+            parent.addChild(strand)
+        }
+
+        let outerR: CGFloat = 2.8
+        let innerR: CGFloat = 1.1
+        let numPoints = 5
+        let angleStep = CGFloat.pi / CGFloat(numPoints)
+
+        for side: CGFloat in [-1, 1] {
+            let cx: CGFloat = side * 3.5
+            let cy: CGFloat = 1.8
+            let starPath = CGMutablePath()
+            for i in 0..<numPoints * 2 {
+                let r = (i % 2 == 0) ? outerR : innerR
+                let angle = CGFloat(i) * angleStep - .pi / 2
+                let px = cx + r * cos(angle)
+                let py = cy + r * sin(angle)
+                if i == 0 { starPath.move(to: CGPoint(x: px, y: py)) }
+                else { starPath.addLine(to: CGPoint(x: px, y: py)) }
+            }
+            starPath.closeSubpath()
+            let star = SKShapeNode(path: starPath)
+            star.fillColor = starColor
+            star.strokeColor = starColor.withAlphaComponent(0.7)
+            star.lineWidth = 0.4
+            parent.addChild(star)
+
+            // Tiny white sparkle at star centre
+            let centre = SKShapeNode(circleOfRadius: 0.65)
+            centre.fillColor = .white
+            centre.strokeColor = .clear
+            centre.position = CGPoint(x: cx, y: cy)
+            parent.addChild(centre)
+        }
+        addBlush(to: parent)
+        let mouthPath = CGMutablePath()
+        mouthPath.move(to: CGPoint(x: -2.8, y: -3.8))
+        mouthPath.addQuadCurve(to: CGPoint(x: 2.8, y: -3.8), control: CGPoint(x: 0, y: -5.8))
+        let mouth = SKShapeNode(path: mouthPath)
+        mouth.strokeColor = SKColor(hex: 0x2D3436)
+        mouth.fillColor = .clear
+        mouth.lineWidth = 0.8
+        mouth.name = "mouth"
+        parent.addChild(mouth)
     }
 
     // MARK: - Mouth
