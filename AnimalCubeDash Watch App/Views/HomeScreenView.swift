@@ -13,8 +13,8 @@ struct HomeScreenView: View {
 
             // Center group: title + character + play button + level
             VStack(spacing: 4) {
-                Text("Cube Dash")
-                    .font(.system(size: 16, weight: .heavy, design: .rounded))
+                Text("Animal Cube Dash")
+                    .font(.system(size: 15, weight: .heavy, design: .rounded))
                     .foregroundColor(.white)
 
                 Text("By Ahaana Sistla!")
@@ -54,13 +54,6 @@ struct HomeScreenView: View {
                 }
                 .buttonStyle(.plain)
 
-                // Level indicator
-                Text("Level \(store.currentLevel)")
-                    .font(.system(size: 12, weight: .semibold, design: .rounded))
-                    .foregroundColor(.white.opacity(0.7))
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 2)
-                    .background(Capsule().fill(Color.white.opacity(0.15)))
             }
 
             Spacer()

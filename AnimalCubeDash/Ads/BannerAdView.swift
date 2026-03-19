@@ -48,12 +48,16 @@ struct BannerAdView: UIViewRepresentable {
     }
 }
 
-/// Fixed-height container: full screen width, 50pt tall.
+/// Fixed-height container: full screen width, 50pt tall. Hidden on simulator.
 struct BannerAdContainer: View {
     var body: some View {
+        #if targetEnvironment(simulator)
+        EmptyView()
+        #else
         BannerAdView()
             .frame(maxWidth: .infinity)
             .frame(height: 50)
             .background(Color.black)
+        #endif
     }
 }

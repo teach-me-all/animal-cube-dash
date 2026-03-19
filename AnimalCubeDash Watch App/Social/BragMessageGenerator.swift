@@ -11,7 +11,7 @@ struct BragMessageGenerator {
         } else if store.highestLevel >= 20 {
             messages.append("Level \(store.highestLevel) and climbing!")
         } else if store.highestLevel > 1 {
-            messages.append("by Ahaana Sistla!")
+            messages.append("Level \(store.highestLevel) reached!")
         }
 
         // Skin unlock messages
@@ -31,7 +31,7 @@ struct BragMessageGenerator {
 
         // Fallback
         if messages.isEmpty {
-            messages.append("by Ahaana Sistla!")
+            messages.append("Tap PLAY to begin! 🐾")
         }
 
         return messages.randomElement() ?? "by Ahaana Sistla!"

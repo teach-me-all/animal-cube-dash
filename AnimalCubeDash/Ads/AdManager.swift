@@ -55,7 +55,14 @@ class AdManager: NSObject, ObservableObject {
 
     // MARK: - Frequency checks
 
+    #if targetEnvironment(simulator)
+    private let adsEnabled = false
+    #else
+    private let adsEnabled = true
+    #endif
+
     func shouldShowPrePlayAd(level: Int) -> Bool {
+        guard adsEnabled else { return false }
         let cfg = AdConfig.current
         guard sessionAge >= cfg.sessionMinSeconds else { return false }
         guard (level - lastPlayAdLevel) >= cfg.playAdInterval else { return false }
@@ -64,6 +71,7 @@ class AdManager: NSObject, ObservableObject {
     }
 
     func shouldShowPostLevelAd(level: Int) -> Bool {
+        guard adsEnabled else { return false }
         let cfg = AdConfig.current
         guard sessionAge >= cfg.sessionMinSeconds else { return false }
         guard (level - lastEndAdLevel) >= cfg.endAdInterval else { return false }
@@ -72,6 +80,7 @@ class AdManager: NSObject, ObservableObject {
     }
 
     func canShowRewardedAd(progress: Float) -> Bool {
+        guard adsEnabled else { return false }
         guard AdConfig.current.nearWinEnabled else { return false }
         guard progress >= 0.4 else { return false }
         guard rewardedCountThisLevel < AdConfig.current.rewardedLimit else { return false }
