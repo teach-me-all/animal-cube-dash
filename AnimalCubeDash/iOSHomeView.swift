@@ -16,19 +16,20 @@ struct iOSHomeView: View {
     var body: some View {
         TabView {
             homeTab
+                .safeAreaInset(edge: .bottom, spacing: 0) { BannerAdContainer() }
                 .tabItem { Label("Home", systemImage: "house.fill") }
             iOSSkinsView()
+                .safeAreaInset(edge: .bottom, spacing: 0) { BannerAdContainer() }
                 .tabItem { Label("Skins", systemImage: "paintpalette.fill") }
             iOSLeaderboardView()
+                .safeAreaInset(edge: .bottom, spacing: 0) { BannerAdContainer() }
                 .tabItem { Label("Leaderboard", systemImage: "trophy.fill") }
             iOSFriendsView()
+                .safeAreaInset(edge: .bottom, spacing: 0) { BannerAdContainer() }
                 .tabItem { Label("Friends", systemImage: "person.2.fill") }
         }
         .tint(.green)
         .preferredColorScheme(.dark)
-        .safeAreaInset(edge: .bottom, spacing: 0) {
-            BannerAdContainer()
-        }
     }
 
     private var homeTab: some View {

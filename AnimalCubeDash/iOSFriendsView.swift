@@ -208,7 +208,7 @@ struct iOSFriendsView: View {
                 .foregroundColor(.secondary)
 
             Button {
-                shareText = "Play Animal Cube Dash with me on Apple Watch! 🐾 Free on the App Store."
+                shareText = "Play Animal Cube Dash with me on Apple Watch and iPhone! 🐾 It's free — download it here 👇\n\(appStoreLink)"
                 showShareSheet = true
             } label: {
                 Label("Invite", systemImage: "envelope.fill")
@@ -224,21 +224,25 @@ struct iOSFriendsView: View {
         .background(RoundedRectangle(cornerRadius: 16).fill(Color(red: 0.13, green: 0.16, blue: 0.22)))
     }
 
+    private let appStoreLink = "https://apps.apple.com/us/app/animal-cube-dash/id6759482553"
+
     private var bragMessage: String {
         let level = store.highestLevel
         let total = store.totalLevelsCompleted
         let skinCount = store.unlockedSkins.count
         let perfect = store.consecutivePerfectLevels
 
+        let base: String
         if perfect >= 5 {
-            return "I just unlocked a LEGENDARY skin in Animal Cube Dash with \(perfect) perfect levels in a row! 🏆🔥"
+            base = "I just unlocked a LEGENDARY skin in Animal Cube Dash with \(perfect) perfect levels in a row! 🏆🔥\n\nHighest Level: \(level) | Levels Completed: \(total) | Skins: \(skinCount)/\(AnimalSkin.allCases.count)"
         } else if skinCount == AnimalSkin.allCases.count {
-            return "I collected ALL \(AnimalSkin.allCases.count) skins in Animal Cube Dash! True champion status! 👑"
+            base = "I collected ALL \(AnimalSkin.allCases.count) skins in Animal Cube Dash! True champion status! 👑\n\nHighest Level: \(level) | Levels Completed: \(total)"
         } else if total >= 100 {
-            return "Over \(total) levels completed in Animal Cube Dash! Can you keep up? 💪🎮"
+            base = "Over \(total) levels completed in Animal Cube Dash! Can you keep up? 💪🎮\n\nHighest Level: \(level) | Skins Unlocked: \(skinCount)/\(AnimalSkin.allCases.count)"
         } else {
-            return "I just beat Level \(level) in Animal Cube Dash on Apple Watch! Think you can make it this far? 🎉"
+            base = "I just beat Level \(level) in Animal Cube Dash! \(total) levels completed so far — think you can make it this far? 🎉\n\nSkins Unlocked: \(skinCount)/\(AnimalSkin.allCases.count)"
         }
+        return "\(base)\n\nDownload Animal Cube Dash 👇\n\(appStoreLink)"
     }
 }
 
